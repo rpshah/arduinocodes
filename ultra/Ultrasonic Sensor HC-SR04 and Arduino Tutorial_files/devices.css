@@ -1,0 +1,28 @@
+/* Ad Inserter Device Classes */
+
+/* Desktop */
+
+.ai-desktop          { display: inherit !important; }
+.ai-tablet           { display: none !important; }
+.ai-phone            { display: none !important; }
+.ai-desktop-tablet   { }
+.ai-desktop-phone    { }
+.ai-tablet-phone     { display: none !important; }
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 979px) {
+   .ai-desktop       { display: none !important ; }
+   .ai-tablet        { display: inherit !important; }
+   .ai-desktop-phone { display: none !important; }
+   .ai-tablet-phone  { display: inherit !important; }
+}
+
+/* Phone */
+
+@media (max-width: 767px) {
+   .ai-desktop          { display: none !important; }
+   .ai-phone            { display: inherit !important; }
+   .ai-desktop-tablet   { display: none !important; }
+   .ai-tablet-phone     { display: inherit !important; }
+}

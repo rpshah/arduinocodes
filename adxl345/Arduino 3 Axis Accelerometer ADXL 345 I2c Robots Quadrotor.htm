@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="no-js ie9" lang="en-US"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html style="" class="js supports no-pointerevents no-touchevents cssanimations preserve3d csstransforms csstransforms3d csstransitions" lang="en-US"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arduino 3 Axis Accelerometer ADXL 345 I2c Robots Quadrotor</title>
+<link rel="pingback" href="http://eeenthusiast.com/xmlrpc.php">
+<!-- This site is optimized with the Yoast SEO plugin v3.0.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Arduino 3 Axis Accelerometer ADXL 345 communicates over Arduino I2C Protocol. This module is useful in robotics, quadrotors and other 3D applications.">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/a_002.htm">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="EEEnthusiast » Feed" href="http://eeenthusiast.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="EEEnthusiast » Comments Feed" href="http://eeenthusiast.com/comments/feed/">
+		<script src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/widgets.js" id="twitter-wjs"></script><script src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/analytics.js" async=""></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/eeenthusiast.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=685638bf2d88ccb2823c3e8d1518a875"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d");return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(String.fromCharCode(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(String.fromCharCode(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(String.fromCharCode(55357,56835),0,0):e.fillText(String.fromCharCode(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/wp-emoji-release.js"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="x-stack-css" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/integrity-light.css" type="text/css" media="all">
+<link rel="stylesheet" id="x-google-fonts-css" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack-top-posts-widget-css" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="commentluv_style-css" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/commentluv.css" type="text/css" media="all">
+<!-- This site uses the Google Analytics by Yoast plugin v5.4.6 - Universal enabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-55855953-2', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by Yoast -->
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/jquery.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/jquery-migrate.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/commentluv.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/x-head.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/cs-head.js"></script>
+<link rel="https://api.w.org/" href="http://eeenthusiast.com/wp-json/">
+<link rel="shortlink" href="http://wp.me/p5H2SQ-11">
+<link rel="alternate" type="application/json+oembed" href="http://eeenthusiast.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feeenthusiast.com%2Farduino-i2c-adxl-345-robot%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://eeenthusiast.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Feeenthusiast.com%2Farduino-i2c-adxl-345-robot%2F&amp;format=xml">
+<link type="text/css" rel="stylesheet" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/editor-styles.css"><style type="text/css">img#wpstats{display:none}</style><script type="text/javascript">var _mmunch = {'front': false, 'page': false, 'post': false, 'category': false, 'author': false, 'search': false, 'attachment': false, 'tag': false};_mmunch['post'] = true; _mmunch['postData'] = {"ID":63,"post_name":"arduino-i2c-adxl-345-robot","post_title":"Arduino #13 - 3 axis Accelerometer ADXL 345 I2C - Robots, Quadcopters, etc.","post_type":"post","post_author":"1","post_status":"publish"}; _mmunch['postCategories'] = [{"term_id":3,"name":"Tutorials","slug":"tut","term_group":0,"term_taxonomy_id":3,"taxonomy":"category","description":"All of the tutorials will be located in this section","parent":0,"count":13,"filter":"raw","object_id":63,"cat_ID":3,"category_count":13,"category_description":"All of the tutorials will be located in this section","cat_name":"Tutorials","category_nicename":"tut","category_parent":0}]; _mmunch['postTags'] = [{"term_id":16,"name":"Accelerometer","slug":"accelerometer","term_group":0,"term_taxonomy_id":16,"taxonomy":"post_tag","description":"","parent":0,"count":1,"filter":"raw","object_id":63},{"term_id":15,"name":"ADXL345","slug":"adxl345","term_group":0,"term_taxonomy_id":15,"taxonomy":"post_tag","description":"","parent":0,"count":1,"filter":"raw","object_id":63},{"term_id":4,"name":"Arduino","slug":"arduino","term_group":0,"term_taxonomy_id":4,"taxonomy":"post_tag","description":"","parent":0,"count":15,"filter":"raw","object_id":63},{"term_id":19,"name":"Gyro","slug":"gyro","term_group":0,"term_taxonomy_id":19,"taxonomy":"post_tag","description":"","parent":0,"count":1,"filter":"raw","object_id":63},{"term_id":17,"name":"MCU","slug":"mcu","term_group":0,"term_taxonomy_id":17,"taxonomy":"post_tag","description":"","parent":0,"count":1,"filter":"raw","object_id":63},{"term_id":18,"name":"Triple Axis","slug":"triple-axis","term_group":0,"term_taxonomy_id":18,"taxonomy":"post_tag","description":"","parent":0,"count":1,"filter":"raw","object_id":63},{"term_id":5,"name":"Tutorial","slug":"tutorial","term_group":0,"term_taxonomy_id":5,"taxonomy":"post_tag","description":"","parent":0,"count":12,"filter":"raw","object_id":63}]; _mmunch['postAuthor'] = {"name":"","ID":""};</script><script data-cfasync="false" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/site.js" id="mailmunch-script" data-mailmunch-site-id="39575" async=""></script><script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//eeenthusiast.com/?wordfence_logHuman=1&hid=EAC3595F0951E0BA6C12E97C8C146017');
+</script>
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arduino #13 – 3 axis Accelerometer ADXL 345 I2C – Robots, Quadcopters, etc.">
+<meta property="og:url" content="http://eeenthusiast.com/arduino-i2c-adxl-345-robot/">
+<meta property="og:description" content="Arduino #13 – 3 axis Accelerometer ADXL 345 I2C – Robots, Quadcopters, etc. In the thirteenth Arduino tutorial, we are taking a look at the ADXL345 Module which features a triple axis a…">
+<meta property="article:published_time" content="2015-02-26T18:00:00+00:00">
+<meta property="article:modified_time" content="2015-07-28T01:56:39+00:00">
+<meta property="og:site_name" content="EEEnthusiast">
+<meta property="og:image" content="http://eeenthusiast.com/wp-content/uploads/2015/02/tutorial13adxl.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:image" content="http://eeenthusiast.com/wp-content/uploads/2015/02/tutorial13adxl.jpg?w=640">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@EE_Enthusiast">
+<style id="x-generated-css" type="text/css">a,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,.x-topbar .p-info a:hover,.x-breadcrumb-wrap a:hover,.widget ul li a:hover,.widget ol li a:hover,.widget.widget_text ul li a,.widget.widget_text ol li a,.widget_nav_menu .current-menu-item > a,.x-widgetbar .widget ul li a:hover,.x-accordion-heading .x-accordion-toggle:hover,.x-comment-author a:hover,.x-comment-time:hover,.x-recent-posts a:hover .h-recent-posts{color:#8bc19d;}a:hover,.widget.widget_text ul li a:hover,.widget.widget_text ol li a:hover,.x-twitter-widget ul li a:hover{color:#77a588;}.rev_slider_wrapper,a.x-img-thumbnail:hover,.x-slider-container.below,.page-template-template-blank-3-php .x-slider-container.above,.page-template-template-blank-6-php .x-slider-container.above{border-color:#8bc19d;}.entry-thumb:before,.x-pagination span.current,.flex-direction-nav a,.flex-control-nav a:hover,.flex-control-nav a.flex-active,.mejs-time-current,.x-dropcap,.x-skill-bar .bar,.x-pricing-column.featured h2,.h-comments-title small,.x-entry-share .x-share:hover,.x-highlight,.x-recent-posts .x-recent-posts-img:after{background-color:#8bc19d;}.x-nav-tabs > .active > a,.x-nav-tabs > .active > a:hover{box-shadow:inset 0 3px 0 0 #8bc19d;}.x-main{width:69.536945%;}.x-sidebar{width:25.536945%;}.x-topbar .p-info,.x-topbar .p-info a,.x-navbar .desktop .x-nav > li > a,.x-navbar .desktop .sub-menu a,.x-navbar .mobile .x-nav li > a,.x-breadcrumb-wrap a,.x-breadcrumbs .delimiter{color:#888888;}.x-navbar .desktop .x-nav > li > a:hover,.x-navbar .desktop .x-nav > .x-active > a,.x-navbar .desktop .x-nav > .current-menu-item > a,.x-navbar .desktop .sub-menu a:hover,.x-navbar .desktop .sub-menu .x-active > a,.x-navbar .desktop .sub-menu .current-menu-item > a,.x-navbar .desktop .x-nav .x-megamenu > .sub-menu > li > a,.x-navbar .mobile .x-nav li > a:hover,.x-navbar .mobile .x-nav .x-active > a,.x-navbar .mobile .x-nav .current-menu-item > a{color:#0025fc;}.x-navbar .desktop .x-nav > li > a:hover,.x-navbar .desktop .x-nav > .x-active > a,.x-navbar .desktop .x-nav > .current-menu-item > a{box-shadow:inset 0 4px 0 0 #8bc19d;}.x-navbar .desktop .x-nav > li > a{height:80px;padding-top:23px;}.x-navbar-fixed-top-active .x-navbar-wrap{margin-bottom:1px;}.x-navbar .desktop .x-nav > li ul{top:65px;;}.x-comment-author,.x-comment-time,.comment-form-author label,.comment-form-email label,.comment-form-url label,.comment-form-rating label,.comment-form-comment label,.widget_calendar #wp-calendar caption,.widget.widget_rss li .rsswidget{font-family:Lato;font-weight:400;text-transform:uppercase;}.p-landmark-sub,.p-meta,input,button,select,textarea{font-family:Lato;}.widget ul li a,.widget ol li a,.x-comment-time{color:#7a7a7a;}.widget_text ol li a,.widget_text ul li a{color:#8bc19d;}.widget_text ol li a:hover,.widget_text ul li a:hover{color:#77a588;}.comment-form-author label,.comment-form-email label,.comment-form-url label,.comment-form-rating label,.comment-form-comment label,.widget_calendar #wp-calendar th,.p-landmark-sub strong,.widget_tag_cloud .tagcloud a:hover,.widget_tag_cloud .tagcloud a:active,.entry-footer a:hover,.entry-footer a:active,.x-breadcrumbs .current,.x-comment-author,.x-comment-author a{color:#333333;}.widget_calendar #wp-calendar th{border-color:#333333;}.h-feature-headline span i{background-color:#333333;}@media (max-width:979px){.x-navbar-fixed-top-active .x-navbar-wrap{margin-bottom:0;}}body{font-size:14px;font-style:normal;font-weight:400;color:#7a7a7a;background:#44bf01 url(//theme.co/x/demo/ethos/1/wp-content/uploads/sites/2/2014/05/neutral1.png) center top repeat;}a:focus,select:focus,input[type="file"]:focus,input[type="radio"]:focus,input[type="submit"]:focus,input[type="checkbox"]:focus{outline:thin dotted #333;outline:5px auto #8bc19d;outline-offset:-1px;}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:"Lato",sans-serif;font-style:normal;font-weight:400;text-transform:uppercase;}h1,.h1{letter-spacing:0.048em;}h2,.h2{letter-spacing:0.068em;}h3,.h3{letter-spacing:0.085em;}h4,.h4{letter-spacing:0.113em;}h5,.h5{letter-spacing:0.129em;}h6,.h6{letter-spacing:0.194em;}.w-h{font-weight:400 !important;}.x-container.width{width:90%;}.x-container.max{max-width:1400px;}.site,.x-navbar.x-navbar-fixed-top.x-container.max.width{width:90%;max-width:1400px;}.x-main.full{float:none;display:block;width:auto;}@media (max-width:979px){.x-main.full,.x-main.left,.x-main.right,.x-sidebar.left,.x-sidebar.right{float:none;display:block;width:auto !important;}}.entry-header,.entry-content{font-size:17px;}body,input,button,select,textarea{font-family:"Lato",sans-serif;}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,.h1 a,.h2 a,.h3 a,.h4 a,.h5 a,.h6 a,blockquote{color:#333333;}.cfc-h-tx{color:#333333 !important;}.cfc-h-bd{border-color:#333333 !important;}.cfc-h-bg{background-color:#333333 !important;}.cfc-b-tx{color:#7a7a7a !important;}.cfc-b-bd{border-color:#7a7a7a !important;}.cfc-b-bg{background-color:#7a7a7a !important;}body.x-navbar-fixed-top-active .x-navbar-wrap{height:80px;}.x-navbar-inner{min-height:80px;}.x-logobar-inner{padding-top:15px;padding-bottom:15px;}.x-brand{font-family:"Merriweather",serif;font-size:50px;font-style:normal;font-weight:300;letter-spacing:0.086em;text-transform:uppercase;color:#999999;}.x-brand:hover,.x-brand:focus{color:#999999;}.x-navbar .x-nav-wrap .x-nav > li > a{font-family:"Lato",sans-serif;font-style:normal;font-weight:900;letter-spacing:0.077em;text-transform:uppercase;}.x-navbar .desktop .x-nav > li > a{font-size:13px;}.x-navbar .desktop .x-nav > li > a:not(.x-btn-navbar-woocommerce){padding-left:20px;padding-right:20px;}.x-navbar .desktop .x-nav > li > a > span{margin-right:-0.077em;}.x-btn-navbar{margin-top:17px;}.x-btn-navbar,.x-btn-navbar.collapsed{font-size:24px;}@media (max-width:979px){.x-navbar.x-navbar-fixed-top.x-container.max.width{left:0;right:0;width:100%;}body.x-navbar-fixed-top-active .x-navbar-wrap{height:auto;}.x-widgetbar{left:0;right:0;}}.x-btn,.button,[type="submit"]{color:#8bc19d;border-color:#7da09a;background-color:#52725d;border-width:3px;text-transform:uppercase;background-color:transparent;border-radius:0.25em;padding:0.579em 1.105em 0.842em;font-size:19px;}.x-btn:hover,.button:hover,[type="submit"]:hover{color:#77a588;border-color:#77a588;background-color:#52725d;border-width:3px;text-transform:uppercase;background-color:transparent;}.x-btn.x-btn-real,.x-btn.x-btn-real:hover{margin-bottom:0.25em;text-shadow:0 0.075em 0.075em rgba(0,0,0,0.65);}.x-btn.x-btn-real{box-shadow:0 0.25em 0 0 #2d3f33,0 4px 9px rgba(0,0,0,0.75);}.x-btn.x-btn-real:hover{box-shadow:0 0.25em 0 0 #2d3f33,0 4px 9px rgba(0,0,0,0.75);}.x-btn.x-btn-flat,.x-btn.x-btn-flat:hover{margin-bottom:0;text-shadow:0 0.075em 0.075em rgba(0,0,0,0.65);box-shadow:none;}.x-btn.x-btn-transparent,.x-btn.x-btn-transparent:hover{margin-bottom:0;border-width:3px;text-shadow:none;text-transform:uppercase;background-color:transparent;box-shadow:none;}</style><link href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/widgets.css" type="text/css" rel="stylesheet"><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/services.css"><script src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/a" async="" type="text/javascript"></script><script src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/timeline.js" async="" charset="utf-8" type="text/javascript"></script></head>
+
+<body class="single single-post postid-63 single-format-standard x-integrity x-integrity-light x-navbar-fixed-top-active x-boxed-layout-active x-content-sidebar-active x-post-meta-disabled x-v4_3_2 cornerstone-v1_0_11">
+
+  
+  <div id="top" class="site">
+
+  
+  
+  <header class="masthead masthead-stacked" role="banner">
+    
+    
+
+  <div class="x-logobar">
+    <div class="x-logobar-inner">
+      <div class="x-container max width">
+        
+
+<a href="http://eeenthusiast.com/" class="x-brand img" title="Projects, Tutorials, Reviews and more...">
+  <img src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/eelogo.png" alt="Projects, Tutorials, Reviews and more..."></a>      </div>
+    </div>
+  </div>
+
+  <div class="x-navbar-wrap">
+    <div class="x-navbar x-navbar-fixed-top x-container max width">
+      <div class="x-navbar-inner">
+        <div class="x-container max width">
+          
+<a href="#" class="x-btn-navbar collapsed" data-toggle="collapse" data-target=".x-nav-wrap.mobile">
+  <i class="x-icon-bars" data-x-icon=""></i>
+  <span class="visually-hidden">Navigation</span>
+</a>
+
+<nav class="x-nav-wrap desktop" role="navigation">
+  <ul id="menu-top-menu1" class="x-nav"><li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14"><a href="http://eeenthusiast.com/"><span>Home</span></a></li>
+<li id="menu-item-11753" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-11753 tax-item tax-item-3"><a href="http://eeenthusiast.com/category/tut/"><span>Tutorials</span></a></li>
+<li id="menu-item-15" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-15 tax-item tax-item-1"><a href="http://eeenthusiast.com/category/blog/"><span>Blog</span></a></li>
+<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="http://eeenthusiast.com/about/"><span>About</span></a></li>
+<li id="menu-item-111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-111"><a href="http://eeenthusiast.com/contact/"><span>Contact</span></a></li>
+<li class="menu-item x-menu-item x-menu-item-search"><a href="#" class="x-btn-navbar-search"><span><i class="x-icon-search" data-x-icon="" aria-hidden="true"></i><span class="x-hidden-desktop"> Search</span></span></a></li></ul></nav>
+
+<div class="x-nav-wrap mobile collapse">
+  <ul id="menu-top-menu1-1" class="x-nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14"><a href="http://eeenthusiast.com/"><span>Home</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-11753 tax-item tax-item-3"><a href="http://eeenthusiast.com/category/tut/"><span>Tutorials</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-15 tax-item tax-item-1"><a href="http://eeenthusiast.com/category/blog/"><span>Blog</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="http://eeenthusiast.com/about/"><span>About</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-111"><a href="http://eeenthusiast.com/contact/"><span>Contact</span></a></li>
+<li class="menu-item x-menu-item x-menu-item-search"><a href="#" class="x-btn-navbar-search"><span><i class="x-icon-search" data-x-icon="" aria-hidden="true"></i><span class="x-hidden-desktop"> Search</span></span></a></li></ul></div>        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    </header>
+
+    
+  
+  <div class="x-container max width offset">
+    <div class="x-main left" role="main">
+
+              
+<article id="post-63" class="post-63 post type-post status-publish format-standard has-post-thumbnail hentry category-tut tag-accelerometer tag-adxl345 tag-arduino tag-gyro tag-mcu tag-triple-axis tag-tutorial">
+  <div class="entry-featured">
+    <div class="entry-thumb"><img src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/tutorial13adxl.jpg" class="attachment-entry size-entry wp-post-image" alt="Adxl345 Arduino I2C" srcset="http://eeenthusiast.com/wp-content/uploads/2015/02/tutorial13adxl-300x169.jpg 300w, http://eeenthusiast.com/wp-content/uploads/2015/02/tutorial13adxl-1024x576.jpg 1024w, http://eeenthusiast.com/wp-content/uploads/2015/02/tutorial13adxl-800x450.jpg 800w, http://eeenthusiast.com/wp-content/uploads/2015/02/tutorial13adxl.jpg 1280w" sizes="(max-width: 876px) 100vw, 876px" height="493" width="876"></div>  </div>
+  <div class="entry-wrap">
+    
+<header class="entry-header">
+    <h1 class="entry-title">Arduino #13 – 3 axis Accelerometer ADXL 345 I2C – Robots, Quadcopters, etc.</h1>
+    </header>    
+
+
+<div class="entry-content content">
+
+
+  <div class="mailmunch-forms-before-post" style="display: none !important;"></div><h2>Arduino #13 – 3 axis Accelerometer ADXL 345 I2C – Robots, Quadcopters, etc.</h2>
+<p>In the thirteenth Arduino tutorial, we are taking a look at the 
+ADXL345 Module which features a triple axis accelerometer IC. The focus 
+of the tutorial is to leverage the Arduino Wire tutorial in order to 
+communicate over the Arduino I2C protocol.</p>
+<h2>Hardware Setup</h2>
+<p>Connecting the Accelerometer is quite simple. You will need several 
+wire jumpers and two pull up resistors. The value of the said resistors 
+can range from 5k all the way to 100k. Their purpose is to keep the I2C 
+lines high because the protocol relies on pulling them down only. It is 
+important to note that it may be possible to omit these resistors, but 
+communication issues may show themselves depending on your set-up.</p>
+<p>Connect your Arduino to the sensor as per the diagram shown below:<br>
+<a href="http://eeenthusiast.com/wp-content/uploads/2015/02/fritz.png"><img src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/fritz-1024x677.png" alt="Arduino I2c" class="aligncenter size-large wp-image-66" data-wp-pid="66" srcset="http://eeenthusiast.com/wp-content/uploads/2015/02/fritz-300x198.png 300w, http://eeenthusiast.com/wp-content/uploads/2015/02/fritz-1024x677.png 1024w, http://eeenthusiast.com/wp-content/uploads/2015/02/fritz-800x529.png 800w, http://eeenthusiast.com/wp-content/uploads/2015/02/fritz.png 1085w" sizes="(max-width: 1024px) 100vw, 1024px" height="677" width="1024"></a></p>
+<h2>Programming the Arduino I2C</h2>
+<p>As mentioned above, we will rely on the Wire.h library. Below are the functions we will be using.</p>
+<ul>
+<li><strong>Wire.begin()</strong> – Initiates the Arduino I2C Protocol.</li>
+<li><strong>Wire.beginTransmission(X)</strong> – Initiates communication to an I2C capable device with the Address X.</li>
+<li><strong>Wire.write(X)</strong> – Transmits the specified data X from the Master Device.</li>
+<li><strong>Wire.endTransmission()</strong> – Terminates transmission.</li>
+<li><strong>Wire.requestFrom(X, Y)</strong> – Requests data of length Y from the device located at address X.</li>
+</ul>
+<p>Full Documentation of Wire.h: <a href="http://arduino.cc/en/Reference/Wire" title="Arduino Wire.h" target="_blank">Arduino Wire.h Library</a></p>
+<p>———-<br>
+#include <wire.h></wire.h></p>
+<p>#define accel_module (0x53)<br>
+byte values[6] ;<br>
+char output[512];</p>
+<p>void setup(){<br>
+  Wire.begin();<br>
+  Serial.begin(9600);<br>
+———-<br>
+The above code initializes our program.  The address of the ADXL345 is 
+saved in memory. This address is specified in the datasheet as 0x53. We 
+also call out 6 bytes of data in order to save the information from the 
+Accelerometer. The string output will be used to send information to the
+ Serial Port. Finally, in the setup function, we call out the use of the
+ Arduino I2C protocol as well as the Serial protocol.</p><div class="mailmunch-forms-in-post-middle" style="display: none !important;"></div>
+<p>———-<br>
+<a href="http://eeenthusiast.com/wp-content/uploads/2015/02/add3.png"><img src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/add3.png" alt="Accelerometer Arduino I2C" class="aligncenter size-full wp-image-68" data-wp-pid="68" srcset="http://eeenthusiast.com/wp-content/uploads/2015/02/add3-300x46.png 300w, http://eeenthusiast.com/wp-content/uploads/2015/02/add3.png 525w" sizes="(max-width: 525px) 100vw, 525px" height="81" width="525"></a><br>
+Wire.beginTransmission(accel_module);<br>
+Wire.write(0x2D);<br>
+Wire.write(0);<br>
+Wire.endTransmission();<br>
+Wire.beginTransmission(accel_module);<br>
+Wire.write(0x2D);<br>
+Wire.write(16);<br>
+Wire.endTransmission();<br>
+Wire.beginTransmission(accel_module);<br>
+Wire.write(0x2D);<br>
+Wire.write(8);<br>
+Wire.endTransmission();<br>
+}<br>
+———-<br>
+The above code is used to initialize the Power Control Register. Its 
+address is specified by 0x2D. The first code segment clears the 
+register. The D4 and D3 registers are set to high. This is done in order
+ to set the module into Measure mode and to make sure it is not in sleep
+ mode.</p>
+<p>———-<br>
+<a href="http://eeenthusiast.com/wp-content/uploads/2015/02/add2.png"><img src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/add2.png" alt="Accelerometer Arduino" class="aligncenter size-full wp-image-70" data-wp-pid="70" srcset="http://eeenthusiast.com/wp-content/uploads/2015/02/add2-300x63.png 300w, http://eeenthusiast.com/wp-content/uploads/2015/02/add2.png 723w" sizes="(max-width: 723px) 100vw, 723px" height="151" width="723"></a><br>
+void loop(){<br>
+  int xyzregister = 0x32;<br>
+  int x, y, z;</p>
+<p>  Wire.beginTransmission(accel_module);<br>
+  Wire.write(xyzregister);<br>
+  Wire.endTransmission();</p>
+<p>  Wire.beginTransmission(accel_module);<br>
+  Wire.requestFrom(accel_module, 6);</p>
+<p>  int i = 0;<br>
+  while(Wire.available()){<br>
+    values[i] = Wire.read();<br>
+    i++;<br>
+  }<br>
+  Wire.endTransmission();<br>
+———-<br>
+The first section of the above code is used to specify the first data 
+register. This information comes from the datasheet. We begin 
+transmission to the module; a request is sent to the address of the 
+module. Each retrieved value is stored in the values register follower 
+by an end of transmission.</p>
+<p>———-<br>
+  x = (((int)values[1]) &lt;&lt; 8) | values[0];   
+  y = (((int)values[3])&lt;&lt; 8) | values[2];
+  z = (((int)values[5]) &lt;&lt; 8) | values[4];
+  
+  sprintf(output, "%d %d %d", x, y, z);  
+  Serial.print(output);
+  Serial.write(10);
+
+  delay(1000);
+}
+----------
+Each axis is composed of two bytes of data. We break down the data into 
+the three axis. This data is passed to our string output and sent to the
+ serial port of the Arduino. A delay is used to make sure we do not spam
+ the console.
+
+
+</p><h2>Output of the Module</h2>
+<p>The module will now send data about the three axis over the Arduino 
+I2C protocol. You should be able to define a 0 for your particular 
+module; keep in mind that the accelerometer axis will need calibration.</p>
+<h2>Watch the full video tutorial</h2>
+<p><iframe wmode="Opaque" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/HM_Vj8weu4I.htm" allowfullscreen="" frameborder="0" height="315" width="560"></iframe></p>
+<h2>Relevant Links</h2>
+<ul>
+<li><strong>Datasheet</strong> – <a href="http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf" title="ADXL345 Datasheet" target="_blank">ADXL345 Datasheet</a></li>
+<li><strong>Arduino Wire Library</strong> – <a href="http://arduino.cc/en/Reference/Wire" title="Arduino Wire" target="_blank">Arduino Wire</a></li>
+</ul>
+<p></p><div class="mailmunch-forms-after-post" style="display: none !important;"></div>  
+
+</div>
+
+  </div>
+  
+  <footer class="entry-footer cf">
+    <a href="http://eeenthusiast.com/tag/accelerometer/" rel="tag">Accelerometer</a><a href="http://eeenthusiast.com/tag/adxl345/" rel="tag">ADXL345</a><a href="http://eeenthusiast.com/tag/arduino/" rel="tag">Arduino</a><a href="http://eeenthusiast.com/tag/gyro/" rel="tag">Gyro</a><a href="http://eeenthusiast.com/tag/mcu/" rel="tag">MCU</a><a href="http://eeenthusiast.com/tag/triple-axis/" rel="tag">Triple Axis</a><a href="http://eeenthusiast.com/tag/tutorial/" rel="tag">Tutorial</a>  </footer>
+</article>        
+      
+    </div>
+
+          
+
+
+  <aside class="x-sidebar right" role="complementary">
+          <div id="text-14" class="widget widget_text"><h4 class="h-widget">Sponsored Content</h4>			<div class="textwidget"><script async="" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/adsbygoogle.js"></script>
+<!-- eeenthusiast top widget ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1782827762909772" data-ad-slot="3225205448" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</div><div id="search-2" class="widget widget_search">
+<form method="get" id="searchform" class="form-search" action="http://eeenthusiast.com/">
+  <label for="s" class="visually-hidden">Search</label>
+  <input id="s" class="search-query" name="s" placeholder="Search" type="text">
+</form></div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="h-widget">Recent Posts</h4>		<ul>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-projects-potentiometer-servo-control-memory/">Arduino Project – Potentiometer Servo Control &amp; Memory</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-plant-watering-drip-feed-system/">Arduino Plant Watering Drip Feed System – Part 2</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/house-plant-watering-automation-arduino/">House Plant Watering Automation with Arduino Project – Part 1</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-dc-motor-drive-h-bridge-pwm/">Arduino Tut#16 – DC Motor Drives, Voltage, Direction, H-Bridge, PWM</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-robot-kit/">Arduino Bot #1 – Assembling the Autonomous Robot Kit</a>
+						</li>
+				</ul>
+		</div>		<div id="recent-comments-2" class="widget widget_recent_comments"><h4 class="h-widget">Recent Comments</h4><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Ernie Delemeester</span> on <a href="http://eeenthusiast.com/arduino-robot-kit/#comment-446">Arduino Bot #1 – Assembling the Autonomous Robot Kit</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://yahoo.com/" rel="external nofollow" class="url">Anonymous</a></span> on <a href="http://eeenthusiast.com/shift-registers-arduino-tutorial-outputs/#comment-50">Shift Registers Arduino Tutorial – Expanding Arduino Outputs</a></li></ul></div><div id="twitter_timeline-2" class="widget widget_twitter_timeline"><h4 class="h-widget">Follow me on Twitter</h4><iframe data-widget-id="569627695206920192" style="position: static; visibility: visible; display: inline-block; width: 320px; height: 1330.27px; padding: 0px; border: medium none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px;" class="twitter-timeline twitter-timeline-rendered" allowfullscreen="true" allowtransparency="true" scrolling="no" id="twitter-widget-0" frameborder="0"></iframe></div>      </aside>
+
+    
+  </div>
+
+
+
+  
+    
+
+  <a class="x-scroll-top right fade" href="#top" title="Back to Top">
+    <i class="x-icon-angle-up" data-x-icon=""></i>
+  </a>
+
+  <script>
+
+  jQuery(document).ready(function($) {
+
+    var windowObj            = $(window);
+    var body                 = $('body');
+    var bodyOffsetBottom     = windowObj.scrollBottom();             // 1
+    var bodyHeightAdjustment = body.height() - bodyOffsetBottom;     // 2
+    var bodyHeightAdjusted   = body.height() - bodyHeightAdjustment; // 3
+    var scrollTopAnchor      = $('.x-scroll-top');
+
+    function sizingUpdate(){
+      var bodyOffsetTop = windowObj.scrollTop();
+      if ( bodyOffsetTop > ( bodyHeightAdjusted * 0.75 ) ) {
+        scrollTopAnchor.addClass('in');
+      } else {
+        scrollTopAnchor.removeClass('in');
+      }
+    }
+
+    windowObj.bind('scroll', sizingUpdate).resize(sizingUpdate);
+    sizingUpdate();
+
+    scrollTopAnchor.click(function(){
+      $('html,body').animate({ scrollTop: 0 }, 850, 'easeInOutExpo');
+      return false;
+    });
+
+  });
+
+  </script>
+
+  
+
+  <footer class="x-colophon top" role="contentinfo">
+    <div class="x-container max width">
+
+      <div class="x-column x-md x-1-3">		<div id="recent-posts-6" class="widget widget_recent_entries">		<h4 class="h-widget">Recent Posts</h4>		<ul>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-projects-potentiometer-servo-control-memory/">Arduino Project – Potentiometer Servo Control &amp; Memory</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-plant-watering-drip-feed-system/">Arduino Plant Watering Drip Feed System – Part 2</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/house-plant-watering-automation-arduino/">House Plant Watering Automation with Arduino Project – Part 1</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-dc-motor-drive-h-bridge-pwm/">Arduino Tut#16 – DC Motor Drives, Voltage, Direction, H-Bridge, PWM</a>
+						</li>
+					<li>
+				<a href="http://eeenthusiast.com/arduino-robot-kit/">Arduino Bot #1 – Assembling the Autonomous Robot Kit</a>
+						</li>
+				</ul>
+		</div>		</div><div class="x-column x-md x-1-3"><div id="categories-7" class="widget widget_categories"><h4 class="h-widget">Categories</h4>		<ul>
+	<li class="cat-item cat-item-1"><a href="http://eeenthusiast.com/category/blog/" title="This section will contain all kinds of blog posts related to electronics, engineering and/or new technology.">Blog</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://eeenthusiast.com/category/news/" title="The section will contain news related posts.">News</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://eeenthusiast.com/category/tut/" title="All of the tutorials will be located in this section">Tutorials</a>
+</li>
+		</ul>
+</div></div><div class="x-column x-md x-1-3 last"></div>
+    </div>
+  </footer>
+
+
+  
+    <footer class="x-colophon bottom" role="contentinfo">
+      <div class="x-container max width">
+
+                  
+<ul id="menu-top-menu1-2" class="x-nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14"><a href="http://eeenthusiast.com/">Home</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-11753 tax-item tax-item-3"><a href="http://eeenthusiast.com/category/tut/">Tutorials</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-15 tax-item tax-item-1"><a href="http://eeenthusiast.com/category/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="http://eeenthusiast.com/about/">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-111"><a href="http://eeenthusiast.com/contact/">Contact</a></li>
+</ul>        
+                  <div class="x-social-global"><a href="https://www.facebook.com/EEEnthusiast/" class="facebook" title="Facebook" target="_blank"><i class="x-icon-facebook-square" data-x-icon="" aria-hidden="true"></i></a><a href="https://twitter.com/EE_Enthusiast" class="twitter" title="Twitter" target="_blank"><i class="x-icon-twitter-square" data-x-icon="" aria-hidden="true"></i></a><a href="https://www.youtube.com/user/EEEnthusiast" class="youtube" title="YouTube" target="_blank"><i class="x-icon-youtube-square" data-x-icon="" aria-hidden="true"></i></a></div>        
+                  <div class="x-colophon-content">
+                      </div>
+        
+      </div>
+    </footer>
+
+  
+
+  
+      <div class="x-searchform-overlay">
+        <div class="x-searchform-overlay-inner">
+          <div class="x-container max width">
+            <form method="get" id="searchform" class="form-search center-text" action="http://eeenthusiast.com/">
+              <label for="s" class="cfc-h-tx tt-upper">Type and Press “enter” to Search</label>
+              <input id="s" class="search-query cfc-h-tx center-text tt-upper" name="s" type="text">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      
+  </div> <!-- END #top.site -->
+
+  
+<script type="text/javascript">
+/* <![CDATA[ */
+var cl_settings = {name : 'author',url : 'url',comment : 'comment',email : 'email',infopanel : 'on',default_on : 'on',default_on_admin : 'on',cl_version : '2.94.5',images : 'http://eeenthusiast.com/wp-content/plugins/commentluv/images/',api_url : 'http://eeenthusiast.com/wp-admin/admin-ajax.php',_fetch : '8085630dd1',_info : '934780f395',infoback : 'white',infotext : 'black',template_insert : '',logged_in : '',refer : 'http://eeenthusiast.com/arduino-i2c-adxl-345-robot/',no_url_message : 'Please enter a URL and then click the CommentLuv checkbox if you want to add your last blog post',no_http_message : 'Please use http:// in front of your url',no_url_logged_in_message : 'You need to visit your profile in the dashboard and update your details with your site URL',no_info_message : 'No info was available or an error occured'};
+/* ]]> */
+</script>
+	<div style="display:none">
+	</div>
+		<script type="text/javascript">
+			!function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+				if(!d.getElementById(id)){
+					js=d.createElement(s);
+					js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			}(document,"script","twitter-wjs");
+		</script>
+		<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/jquery_002.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/eeenthusiast.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/scripts.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/wpgroho.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/x-body.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/comment-reply.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/cs-body.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/wp-embed.js"></script>
+<script type="text/javascript" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/e-201613.js" async="" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.8.2',blog:'84140872',post:'63',tz:'-4',srv:'eeenthusiast.com'} ]);
+	_stq.push([ 'clickTrackerInit', '84140872', '63' ]);
+</script>
+
+  
+  
+
+<img id="wpstats" src="Arduino%203%20Axis%20Accelerometer%20ADXL%20345%20I2c%20Robots%20Quadrotor_files/g.gif"><span id="heart_tip_big" style="display: none;position:absolute; z-index: 1001; background-color: white; color: black; width: 62px;"></span><div style="display: none;" id="mailmunch-overlay-153cd250793128ba" class="mailmunch-overlay"></div><div style="position: fixed; left: 0px; top: 0px; display: none;" id="mailmunch-popover-153cd250793128ba" class="mailmunch-popover"><div class="mailmunch-popover-container" id="mailmunch-popover-container-153cd250793128ba"><div class="mailmunch-inner-overlay" id="mailmunch-inner-overlay-153cd250793128ba"></div><div class="mailmunch-popover-content" style="max-width: 600px;"><div class="mailmunch-popover-iframe-scaler" style="padding-top: 238px;"><iframe id="mailmunch-popover-frame-153cd250793128ba" class="mailmunch-popover-iframe" scrolling="no" allowtransparency="true" style="height: 238px;" frameborder="0"></iframe></div></div></div></div><iframe style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" allowfullscreen="true" allowtransparency="true" scrolling="no" id="rufous-sandbox" frameborder="0"></iframe></body></html>

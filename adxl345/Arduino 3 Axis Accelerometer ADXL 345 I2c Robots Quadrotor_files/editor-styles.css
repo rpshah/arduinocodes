@@ -1,0 +1,121 @@
+dl.wp-caption {
+
+}
+
+dl.wp-caption dt.wp-caption-dt {
+
+}
+
+dl.wp-caption dd.wp-caption-dd {
+
+}
+
+dl.wp-caption dd.wp-caption-dd small, .wp-caption .wp-caption-text small {
+    display: none;
+}
+
+
+
+
+
+dl.wp-caption.imagepro-radius, div.wp-caption.imagepro-radius {
+    color: #333;
+    padding-right: 0 !important;
+}
+dl.wp-caption.imagepro-radius dt.wp-caption-dt img:first-child, div.wp-caption.imagepro-radius img:first-child {
+    border-radius: 8px;
+}
+dl.wp-caption.imagepro-radius dd.wp-caption-dd, div.wp-caption.imagepro-radius > p.wp-caption-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+dl.wp-caption.imagepro-polaroid, div.wp-caption.imagepro-polaroid {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 3px;
+    color: #333;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    padding-right: 0 !important;
+}
+dl.wp-caption.imagepro-polaroid dt.wp-caption-dt img:first-child, div.wp-caption.imagepro-polaroid img:first-child {
+    padding-right: 10px !important;
+
+}
+dl.wp-caption.imagepro-polaroid dd.wp-caption-dd, div.wp-caption.imagepro-polaroid > p.wp-caption-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+
+
+dl.wp-caption.imagepro-round, div.wp-caption.imagepro-round {
+    padding-right: 0 !important;
+}
+dl.wp-caption.imagepro-round dt.wp-caption-dt img:first-child, div.wp-caption.imagepro-round img:first-child {
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+}
+dl.wp-caption.imagepro-round dd.wp-caption-dd, div.wp-caption.imagepro-round > p.wp-caption-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+/* in case we'll wrap it */
+/*
+
+div.imagepro-polaroid dl.wp-caption, div.imagepro-polaroid div.wp-caption {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 3px;
+    color: #333;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    padding-right: 0 !important;
+}
+div.imagepro-polaroid dl.wp-caption dt.wp-caption-dt, div.imagepro-polaroid div.wp-caption > img:first-child {
+
+}
+div.imagepro-polaroid dl.wp-caption dd.wp-caption-dd, div.imagepro-polaroid div.wp-caption > p.wp-caption-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+
+
+div.imagepro-round dl.wp-caption, div.imagepro-round div.wp-caption {
+    padding-right: 0 !important;
+}
+div.imagepro-round dl.wp-caption dt.wp-caption-dt > img:first-child, div.imagepro-round div.wp-caption > img:first-child {
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+}
+div.imagepro-round dl.wp-caption dd.wp-caption-dd, div.imagepro-round div.wp-caption > p.wp-caption-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+*/

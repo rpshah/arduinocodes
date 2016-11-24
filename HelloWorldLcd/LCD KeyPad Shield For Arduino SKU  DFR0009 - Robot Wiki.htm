@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8"><title>LCD KeyPad Shield For Arduino SKU: DFR0009 - Robot Wiki</title>
+<meta name="generator" content="MediaWiki 1.22.1">
+<link rel="shortcut icon" href="http://www.dfrobot.com/wiki/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://www.dfrobot.com/wiki/opensearch_desc.php" title="Robot Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://www.dfrobot.com/wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Robot Wiki Atom feed" href="http://www.dfrobot.com/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/load.css">
+<style>
+.mw-collapsible-toggle{float:right} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: df_wikiv2-wk:resourceloader:filter:minify-css:7:4250852ed2349a0d4d0fc6509a3e7d4c */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.autoellipsis-matched,.highlight{font-weight:bold}
+/* cache key: df_wikiv2-wk:resourceloader:filter:minify-css:7:9780324491b653a3780e2d029bdc140c */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;-webkit-box-shadow:0 2px 5px 0 #ccc;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(http://www.dfrobot.com/wiki/resources/mediawiki.action/images/green-checkmark.png?2014-01-14T05:50:00Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: df_wikiv2-wk:resourceloader:filter:minify-css:7:74467c571146c0732ecdebb7e533861d */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{text-decoration:none;color:black}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}
+/* cache key: df_wikiv2-wk:resourceloader:filter:minify-css:7:52b1797f70c7e4094dfa4191101944e8 */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<style>a:lang(ar),a:lang(ckb),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}</style>
+<script src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/load_003.php"></script><script src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009","wgTitle":"LCD KeyPad Shield For Arduino SKU: DFR0009","wgCurRevisionId":33304,"wgRevisionId":33304,"wgArticleId":10172,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Product Manual","DFR Series","Shields","LCDs","Source","Diagram"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"vector-simplesearch":1,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,
+"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"useeditwarning":1,"prefershttps":1,"language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"variant":"en"});},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});},{},{});
+/* cache key: df_wikiv2-wk:resourceloader:filter:minify-js:7:5a69c7e0fa6557851b6dea8a62efaffb */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/load_002.php"></script>
+<script type="text/javascript" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/shCore.js"></script>
+<script type="text/javascript" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/shAutoloader.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/shCoreMinit.css">
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/vector/csshover.min.htc")}</style><![endif]--><script src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/load_004.php" async=""></script></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-LCD_KeyPad_Shield_For_Arduino_SKU_DFR0009 skin-vector action-view vector-animateLayout">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">LCD KeyPad Shield For Arduino SKU: DFR0009</span></h1>
+<div id="bodyContent">
+<div id="siteSub">From Robot Wiki</div>
+<div id="contentSub"></div>
+<div id="jump-to-nav" class="mw-jump">
+Jump to: <a href="#mw-navigation">navigation</a>, <a href="#p-search">search</a>
+</div>
+<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en">|<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="http://www.dfrobot.com/wiki/index.php?title=File:DSC0410.jpg" class="image"><img alt="DSC0410.jpg" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/300px-DSC0410.jpg" class="thumbimage" srcset="/wiki/images/thumb/4/4b/DSC0410.jpg/450px-DSC0410.jpg 1.5x, /wiki/images/thumb/4/4b/DSC0410.jpg/600px-DSC0410.jpg 2x" height="199" width="300"></a> <div class="thumbcaption"><div class="magnify"><a href="http://www.dfrobot.com/wiki/index.php?title=File:DSC0410.jpg" class="internal" title="Enlarge"><img src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/magnify-clip.png" alt="" height="11" width="15"></a></div></div></div></div>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Specification"><span class="tocnumber">2</span> <span class="toctext">Specification</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Pinout"><span class="tocnumber">3</span> <span class="toctext">Pinout</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Library_Explanation"><span class="tocnumber">4</span> <span class="toctext">Library Explanation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Function_Explanation"><span class="tocnumber">4.1</span> <span class="toctext">Function Explanation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Tutorial"><span class="tocnumber">5</span> <span class="toctext">Tutorial</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Example_1"><span class="tocnumber">5.1</span> <span class="toctext">Example 1</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Example_2"><span class="tocnumber">5.2</span> <span class="toctext">Example 2</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Connction_Diagram"><span class="tocnumber">5.2.1</span> <span class="toctext">Connction Diagram</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Sample_code"><span class="tocnumber">5.2.2</span> <span class="toctext">Sample code</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Result"><span class="tocnumber">5.2.3</span> <span class="toctext">Result</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Trouble_shooting"><span class="tocnumber">6</span> <span class="toctext">Trouble shooting</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#More"><span class="tocnumber">7</span> <span class="toctext">More</span></a></li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>This is a very popular LCD Keypad shield for Arduino or Freeduino 
+board. It includes a 2x16 LCD display and 6 momentary push buttons. Pins
+ 4, 5, 6, 7, 8, 9 and 10 are used to interface with the LCD. Analog Pin 0
+ is used to read the pushbuttons. The LCD shield supports contrast 
+adjustment and backlit on/off functions. It also expands analog pins for
+ easy analog sensor reading and display.
+</p><p>The LCD Keypad shield is developed for Arduino compatible boards,
+ to provide a user-friendly interface that allows users to go through 
+the menu, make selections etc. It consists of a 1602 white character 
+blue backlight LCD. The keypad consists of 5 keys — select, up, right, 
+down and left. To save the digital IO pins, the keypad interface uses 
+only one ADC channel. The key value is read through a 5 stage voltage 
+divider.
+<br>
+</p>
+<h2><span class="mw-headline" id="Specification">Specification</span></h2>
+<ul>
+<li>Operating Voltage:5V
+</li>
+<li>5 Push buttons to supply a custom menu control panel
+</li>
+<li>RST button for resetting arduino program
+</li>
+<li>Integrate a potentiometer for adjusting the backlight
+</li>
+<li>Expanded available I/O pins
+</li>
+<li>Expanded Analog Pinout with standard DFRobot configuration for fast sensor extension
+</li>
+<li>Dimension: 80 x 58 mm
+</li>
+</ul>
+<h2><span class="mw-headline" id="Pinout">Pinout</span></h2>
+<div class="center"><div class="floatnone"><a href="http://www.dfrobot.com/wiki/index.php?title=File:DFR0009-PIN2.png" class="image"><img alt="DFR0009-PIN2.png" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/900px-DFR0009-PIN2.png" srcset="/wiki/images/thumb/5/5e/DFR0009-PIN2.png/1350px-DFR0009-PIN2.png 1.5x, /wiki/images/thumb/5/5e/DFR0009-PIN2.png/1800px-DFR0009-PIN2.png 2x" height="767" width="900"></a></div></div>
+<h2><span class="mw-headline" id="Library_Explanation">Library Explanation</span></h2>
+<h3><span class="mw-headline" id="Function_Explanation">Function Explanation</span></h3>
+<p><b>LiquidCrystal(rs, enable, d4, d5, d6, d7)</b>
+</p><p>Creates a variable of type LiquidCrystal. The display can be 
+controlled using 4 or 8 data lines. If the former, omit the pin numbers 
+for d0 to d3 and leave those lines unconnected. The RW pin can be tied 
+to ground instead of connected to a pin on the Arduino; if so, omit it 
+from this function's parameters. for example:
+</p>
+<pre>LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+</pre>
+<p><b>lcd.begin(cols, rows)</b>
+</p><p>Initializes the interface to the LCD screen, and specifies the 
+dimensions (width and height) of the display. begin() needs to be called
+ before any other LCD library commands.for example:
+</p>
+<pre>lcd.begin(16, 2);  
+</pre>
+<p><b>lcd.setCursor(col,row)</b>
+</p><p>Set the location at which subsequent text written to the LCD will be displayed. for example:
+</p>
+<pre>lcd.setCursor(0,0);
+</pre>
+<p><b>lcd.print(data)</b>
+</p><p>Prints text to the LCD.for example:
+</p>
+<pre>lcd.print("hello, world!");
+</pre>
+<p><b>lcd.write(data)</b>
+</p><p>Write a character to the LCD.
+</p><p><br>
+<b>More function can see:</b>
+</p>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://arduino.cc/en/Reference/LiquidCrystal">LiquidCrystal Library</a>
+</li>
+</ul>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Tutorial">Tutorial</span></h2>
+<h3><span class="mw-headline" id="Example_1">Example 1</span></h3>
+<p>This example will test the LCD panel and the buttons.When you push 
+the button on the shield，the screen will show the corresponding one.
+</p><p>Connection: Plug the LCD Keypad to the UNO(or other controllers)
+</p>
+<div><div id="highlighter_246929" class="syntaxhighlighter  cpp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div><div class="line number54 index53 alt1">54</div><div class="line number55 index54 alt2">55</div><div class="line number56 index55 alt1">56</div><div class="line number57 index56 alt2">57</div><div class="line number58 index57 alt1">58</div><div class="line number59 index58 alt2">59</div><div class="line number60 index59 alt1">60</div><div class="line number61 index60 alt2">61</div><div class="line number62 index61 alt1">62</div><div class="line number63 index62 alt2">63</div><div class="line number64 index63 alt1">64</div><div class="line number65 index64 alt2">65</div><div class="line number66 index65 alt1">66</div><div class="line number67 index66 alt2">67</div><div class="line number68 index67 alt1">68</div><div class="line number69 index68 alt2">69</div><div class="line number70 index69 alt1">70</div><div class="line number71 index70 alt2">71</div><div class="line number72 index71 alt1">72</div><div class="line number73 index72 alt2">73</div><div class="line number74 index73 alt1">74</div><div class="line number75 index74 alt2">75</div><div class="line number76 index75 alt1">76</div><div class="line number77 index76 alt2">77</div><div class="line number78 index77 alt1">78</div><div class="line number79 index78 alt2">79</div><div class="line number80 index79 alt1">80</div><div class="line number81 index80 alt2">81</div><div class="line number82 index81 alt1">82</div><div class="line number83 index82 alt2">83</div><div class="line number84 index83 alt1">84</div><div class="line number85 index84 alt2">85</div><div class="line number86 index85 alt1">86</div><div class="line number87 index86 alt2">87</div><div class="line number88 index87 alt1">88</div><div class="line number89 index88 alt2">89</div><div class="line number90 index89 alt1">90</div><div class="line number91 index90 alt2">91</div><div class="line number92 index91 alt1">92</div><div class="line number93 index92 alt2">93</div><div class="line number94 index93 alt1">94</div><div class="line number95 index94 alt2">95</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp comments">/*************************************************************************************</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp comments">Mark Bramwell, July 2010</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp comments">This program will test the LCD panel and the buttons.When you push the button on the shield，</code></div><div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp comments">the screen will show the corresponding one.</code></div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp comments">Connection: Plug the LCD Keypad to the UNO(or other controllers)</code></div><div class="line number9 index8 alt2">&nbsp;</div><div class="line number10 index9 alt1"><code class="cpp comments">**************************************************************************************/</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="cpp preprocessor">#include &lt;LiquidCrystal.h&gt;</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="cpp plain">LiquidCrystal lcd(8, 9, 4, 5, 6, 7);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// select the pins used on the LCD panel</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="cpp comments">// define some values used by the panel and buttons</code></div><div class="line number17 index16 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">lcd_key&nbsp;&nbsp;&nbsp;&nbsp; = 0;</code></div><div class="line number18 index17 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">adc_key_in&nbsp; = 0;</code></div><div class="line number19 index18 alt2">&nbsp;</div><div class="line number20 index19 alt1"><code class="cpp preprocessor">#define btnRIGHT&nbsp; 0</code></div><div class="line number21 index20 alt2"><code class="cpp preprocessor">#define btnUP&nbsp;&nbsp;&nbsp;&nbsp; 1</code></div><div class="line number22 index21 alt1"><code class="cpp preprocessor">#define btnDOWN&nbsp;&nbsp; 2</code></div><div class="line number23 index22 alt2"><code class="cpp preprocessor">#define btnLEFT&nbsp;&nbsp; 3</code></div><div class="line number24 index23 alt1"><code class="cpp preprocessor">#define btnSELECT 4</code></div><div class="line number25 index24 alt2"><code class="cpp preprocessor">#define btnNONE&nbsp;&nbsp; 5</code></div><div class="line number26 index25 alt1">&nbsp;</div><div class="line number27 index26 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">read_LCD_buttons(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// read the buttons</code></div><div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">adc_key_in = analogRead(0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// read the value from the sensor </code></div><div class="line number29 index28 alt2">&nbsp;</div><div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// my buttons when read are centered at these valies: 0, 144, 329, 504, 741</code></div><div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// we add approx 50 to those values and check to see if we are close</code></div><div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// We make this the 1st option for speed reasons since it will be the most likely result</code></div><div class="line number33 index32 alt2">&nbsp;</div><div class="line number34 index33 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(adc_key_in &gt; 1000) </code><code class="cpp keyword bold">return</code> <code class="cpp plain">btnNONE; </code></div><div class="line number35 index34 alt2">&nbsp;</div><div class="line number36 index35 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// For V1.1 us this threshold</code></div><div class="line number37 index36 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(adc_key_in &lt; 50)&nbsp;&nbsp; </code><code class="cpp keyword bold">return</code> <code class="cpp plain">btnRIGHT;&nbsp; </code></div><div class="line number38 index37 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(adc_key_in &lt; 250)&nbsp; </code><code class="cpp keyword bold">return</code> <code class="cpp plain">btnUP; </code></div><div class="line number39 index38 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(adc_key_in &lt; 450)&nbsp; </code><code class="cpp keyword bold">return</code> <code class="cpp plain">btnDOWN; </code></div><div class="line number40 index39 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(adc_key_in &lt; 650)&nbsp; </code><code class="cpp keyword bold">return</code> <code class="cpp plain">btnLEFT; </code></div><div class="line number41 index40 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(adc_key_in &lt; 850)&nbsp; </code><code class="cpp keyword bold">return</code> <code class="cpp plain">btnSELECT;&nbsp; </code></div><div class="line number42 index41 alt1">&nbsp;</div><div class="line number43 index42 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// For V1.0 comment the other threshold and use the one below:</code></div><div class="line number44 index43 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/*</code></div><div class="line number45 index44 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">if (adc_key_in &lt; 50)&nbsp;&nbsp; return btnRIGHT;&nbsp; </code></div><div class="line number46 index45 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">if (adc_key_in &lt; 195)&nbsp; return btnUP; </code></div><div class="line number47 index46 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">if (adc_key_in &lt; 380)&nbsp; return btnDOWN; </code></div><div class="line number48 index47 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">if (adc_key_in &lt; 555)&nbsp; return btnLEFT; </code></div><div class="line number49 index48 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">if (adc_key_in &lt; 790)&nbsp; return btnSELECT;&nbsp;&nbsp; </code></div><div class="line number50 index49 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">*/</code></div><div class="line number51 index50 alt2">&nbsp;</div><div class="line number52 index51 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">btnNONE;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// when all others fail, return this.</code></div><div class="line number53 index52 alt2"><code class="cpp plain">}</code></div><div class="line number54 index53 alt1">&nbsp;</div><div class="line number55 index54 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">setup(){</code></div><div class="line number56 index55 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.begin(16, 2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// start the library</code></div><div class="line number57 index56 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.setCursor(0,0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// set the LCD cursor&nbsp;&nbsp; position </code></div><div class="line number58 index57 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"Push the buttons"</code><code class="cpp plain">);&nbsp; </code><code class="cpp comments">// print a simple message on the LCD</code></div><div class="line number59 index58 alt2"><code class="cpp plain">}</code></div><div class="line number60 index59 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number61 index60 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">loop(){</code></div><div class="line number62 index61 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.setCursor(9,1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// move cursor to second line "1" and 9 spaces over</code></div><div class="line number63 index62 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(millis()/1000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// display seconds elapsed since power-up</code></div><div class="line number64 index63 alt1">&nbsp;</div><div class="line number65 index64 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.setCursor(0,1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// move to the begining of the second line</code></div><div class="line number66 index65 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd_key = read_LCD_buttons();&nbsp;&nbsp; </code><code class="cpp comments">// read the buttons</code></div><div class="line number67 index66 alt2">&nbsp;</div><div class="line number68 index67 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">switch</code> <code class="cpp plain">(lcd_key){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// depending on which button was pushed, we perform an action</code></div><div class="line number69 index68 alt2">&nbsp;</div><div class="line number70 index69 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">case</code> <code class="cpp plain">btnRIGHT:{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">//&nbsp; push button "RIGHT" and show the word on the screen</code></div><div class="line number71 index70 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"RIGHT "</code><code class="cpp plain">);</code></div><div class="line number72 index71 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">break</code><code class="cpp plain">;</code></div><div class="line number73 index72 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number74 index73 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">case</code> <code class="cpp plain">btnLEFT:{</code></div><div class="line number75 index74 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"LEFT&nbsp;&nbsp; "</code><code class="cpp plain">); </code><code class="cpp comments">//&nbsp; push button "LEFT" and show the word on the screen</code></div><div class="line number76 index75 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">break</code><code class="cpp plain">;</code></div><div class="line number77 index76 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}&nbsp;&nbsp;&nbsp; </code></div><div class="line number78 index77 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">case</code> <code class="cpp plain">btnUP:{</code></div><div class="line number79 index78 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"UP&nbsp;&nbsp;&nbsp; "</code><code class="cpp plain">);&nbsp; </code><code class="cpp comments">//&nbsp; push button "UP" and show the word on the screen</code></div><div class="line number80 index79 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">break</code><code class="cpp plain">;</code></div><div class="line number81 index80 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number82 index81 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">case</code> <code class="cpp plain">btnDOWN:{</code></div><div class="line number83 index82 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"DOWN&nbsp; "</code><code class="cpp plain">);&nbsp; </code><code class="cpp comments">//&nbsp; push button "DOWN" and show the word on the screen</code></div><div class="line number84 index83 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">break</code><code class="cpp plain">;</code></div><div class="line number85 index84 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number86 index85 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">case</code> <code class="cpp plain">btnSELECT:{</code></div><div class="line number87 index86 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"SELECT"</code><code class="cpp plain">);&nbsp; </code><code class="cpp comments">//&nbsp; push button "SELECT" and show the word on the screen</code></div><div class="line number88 index87 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">break</code><code class="cpp plain">;</code></div><div class="line number89 index88 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number90 index89 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">case</code> <code class="cpp plain">btnNONE:{</code></div><div class="line number91 index90 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"NONE&nbsp; "</code><code class="cpp plain">);&nbsp; </code><code class="cpp comments">//&nbsp; No action&nbsp; will show "None" on the screen</code></div><div class="line number92 index91 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">break</code><code class="cpp plain">;</code></div><div class="line number93 index92 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number94 index93 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number95 index94 alt2"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<h3><span class="mw-headline" id="Example_2">Example 2</span></h3>
+<p>This example shows that reads an analog input on pin 1, prints the 
+result to the LCD. This program takes the temperture sensor LM35 for 
+example.
+</p><p><br>
+<b>What you need</b>
+</p>
+<ol>
+<li><a rel="nofollow" class="external text" href="http://www.dfrobot.com/index.php?route=product/product&amp;filter_name=uno&amp;product_id=838">DFRduino UNO R3</a>
+</li>
+<li><a rel="nofollow" class="external text" href="http://www.dfrobot.com/index.php?route=product/product&amp;filter_name=lcd&amp;product_id=51#.UuTNf8aS2c8">LCD Keypad Shield For Arduino</a>
+</li>
+<li><a rel="nofollow" class="external text" href="http://www.dfrobot.com/index.php?route=product/product&amp;filter_name=lm35&amp;product_id=76LM35">Analog Linear Temperature Sensor </a>
+</li>
+</ol>
+<p><br>
+<b>Connection:</b>
+</p><p>Plug the LCD Keypad to the UNO(or other controllers)
+</p><p>Temperture sensor: S(blue) -- A1()
+</p><p><b>Note: A0 has been occupied.</b>
+</p><p>VCC(red) -- VCC
+</p><p>GND(black) -- GND
+</p><p><b><a rel="nofollow" class="external text" href="http://www.dfrobot.com/community/trick-for-changing-sensor-cable-pin-mapping.html">Tricks for changing sensor cable pin mapping</a></b>
+</p><p><br>
+</p>
+<h4><span class="mw-headline" id="Connction_Diagram">Connction Diagram</span></h4>
+<div class="center"><div class="floatnone"><a href="http://www.dfrobot.com/wiki/index.php?title=File:DFR0009%2BLM35.png" class="image"><img alt="DFR0009+LM35.png" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/500px-DFR0009LM35.png" srcset="/wiki/images/thumb/7/77/DFR0009%2BLM35.png/750px-DFR0009%2BLM35.png 1.5x, /wiki/images/thumb/7/77/DFR0009%2BLM35.png/1000px-DFR0009%2BLM35.png 2x" height="556" width="500"></a></div></div>
+<p><br>
+</p>
+<h4><span class="mw-headline" id="Sample_code">Sample code</span></h4>
+<div><div id="highlighter_103424" class="syntaxhighlighter  cpp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp comments">/*******************************************************</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">Description:</code></div><div class="line number4 index3 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">Reads an analog input on pin 1, prints the result to the LCD.</code></div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">This program takes the temperture sensor LM35 for example. </code></div><div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code>&nbsp;</div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">Connection:</code></div><div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">Plug the LCD Keypad to the UNO(or other controllers)</code></div><div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">Temperture sensor:</code></div><div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">S(blue) -- A1()&nbsp; </code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">Note: A0 has been occupied.</code></div><div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">VCC(red) -- VCC</code></div><div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">GND(black) -- GND</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="cpp comments">********************************************************/</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="cpp preprocessor">#include &lt;LiquidCrystal.h&gt;</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="cpp plain">LiquidCrystal lcd(8, 9, 4, 5, 6, 7);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// select the pins used on the LCD panel</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="cpp plain">unsigned </code><code class="cpp color1 bold">long</code> <code class="cpp plain">tepTimer&nbsp;;&nbsp;&nbsp;&nbsp; </code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">setup(){ </code></div><div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.begin(16, 2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// start the library</code></div><div class="line number25 index24 alt2"><code class="cpp plain">}</code></div><div class="line number26 index25 alt1">&nbsp;</div><div class="line number27 index26 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">loop(){ </code></div><div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.setCursor(0, 0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// set the LCD cursor&nbsp;&nbsp; position </code></div><div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">val;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// variable to store the value coming from the analog pin </code></div><div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">double</code> <code class="cpp plain">data;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// variable to store the temperature value coming from the conversion formula</code></div><div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">val=analogRead(1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// read the analog in value:</code></div><div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">data = (</code><code class="cpp color1 bold">double</code><code class="cpp plain">) val * (5/10.24);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// temperature conversion formula</code></div><div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number34 index33 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code><code class="cpp plain">(millis() - tepTimer &gt; 500){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// output a temperature value per 500ms </code></div><div class="line number35 index34 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">tepTimer = millis();</code></div><div class="line number36 index35 alt1">&nbsp;</div><div class="line number37 index36 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// print the results to the lcd</code></div><div class="line number38 index37 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"T: "</code><code class="cpp plain">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number39 index38 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(data);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number40 index39 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">lcd.print(</code><code class="cpp string">"C"</code><code class="cpp plain">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number41 index40 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">} </code></div><div class="line number42 index41 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<h4><span class="mw-headline" id="Result">Result</span></h4>
+<div class="center"><div class="floatnone"><a href="http://www.dfrobot.com/wiki/index.php?title=File:DFR0009%2BTEM.jpg" class="image"><img alt="DFR0009+TEM.jpg" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/500px-DFR0009TEM.jpg" srcset="/wiki/images/thumb/f/fc/DFR0009%2BTEM.jpg/750px-DFR0009%2BTEM.jpg 1.5x, /wiki/images/f/fc/DFR0009%2BTEM.jpg 2x" height="500" width="500"></a></div></div>
+<h2><span class="mw-headline" id="Trouble_shooting">Trouble shooting</span></h2>
+<table style="background-color:#E1FDDF;color:#009000;">
+<tbody><tr>
+<td style="padding: 5px;">
+<p><b>Q1</b>. Why my LCD keypad cannot <b>display anything</b> on the <a rel="nofollow" class="external text" href="http://www.dfrobot.com/index.php?route=product/product&amp;product_id=1198&amp;search=Intel%C2%AE+Edison+with+Arduino+Breakout+Kit&amp;description=true#.Vdr1ZHkViUk">Intel Edison</a> while all right on <a rel="nofollow" class="external text" href="http://www.dfrobot.com/index.php?route=product/product&amp;product_id=1198&amp;search=Intel%C2%AE+Edison+with+Arduino+Breakout+Kit&amp;description=true#.Vdr1ZHkViUk">Romeo</a>?
+</p>
+</td></tr></tbody></table>
+<dl>
+<dd><b>A1:</b> It works well if uploaded by Arduino 1.5.3 version, however, the latest 1.6.* have discard pin Definition <b>for Edison</b>. So you have to add <b>pinMode();</b> into the setup() like this:
+</dd>
+</dl>
+<p><br>
+</p>
+<div><div id="highlighter_17244" class="syntaxhighlighter  cpp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">setup() {</code></div><div class="line number2 index1 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i=4;i&lt;10;i++){</code></div><div class="line number3 index2 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">pinMode(i,OUTPUT);</code></div><div class="line number4 index3 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">lcd.begin(16, 2);&nbsp; </code><code class="cpp comments">// set up the LCD's number of columns and rows</code></div><div class="line number6 index5 alt1"><code class="cpp plain">}</code></div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div></div></td></tr></tbody></table></div></div>
+<p><br>
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:352px;"><a href="http://www.dfrobot.com/wiki/index.php?title=File:DFR0009LCD_KeyPad_Shield_mapping.png" class="image"><img alt="" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/350px-DFR0009LCD_KeyPad_Shield_mapping.png" class="thumbimage" srcset="/wiki/images/thumb/d/d3/DFR0009LCD_KeyPad_Shield_mapping.png/525px-DFR0009LCD_KeyPad_Shield_mapping.png 1.5x, /wiki/images/thumb/d/d3/DFR0009LCD_KeyPad_Shield_mapping.png/700px-DFR0009LCD_KeyPad_Shield_mapping.png 2x" height="229" width="350"></a> <div class="thumbcaption"><div class="magnify"><a href="http://www.dfrobot.com/wiki/index.php?title=File:DFR0009LCD_KeyPad_Shield_mapping.png" class="internal" title="Enlarge"><img src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/magnify-clip.png" alt="" height="11" width="15"></a></div>For A2. Pin mapping on schematic</div></div></div>
+<table style="background-color:#E1FDDF;color:#009000;">
+<tbody><tr>
+<td style="padding: 5px;">
+<p><b>Q2</b>. I do not understand your schematic. There are too many 
+connectors illustrated than are actually on the shield. Could you show 
+me a mapping?
+</p>
+</td></tr></tbody></table>
+<dl>
+<dd><b>A2:</b> The J1-J8 include the both the user interface, i.e. 
+Analog pins, APC220(Serial) pins, Digital pins, and the pins connected 
+with the lower Arduino card, e.g. Uno/ Leonardo. Here is a simple 
+mapping picture.
+</dd>
+</dl>
+<p><br>
+</p>
+<table style="background-color:#E1FDDF;color:#009000;">
+<tbody><tr>
+<td style="padding: 5px;">
+<p><b>Q3</b>. I cannot get the LCD shield to work on Uno. I have a side 
+by side comparison and the other works fine. I get the backlight but no 
+alpha.
+</p>
+</td></tr></tbody></table>
+<dl>
+<dd><b>A3:</b>
+</dd>
+</dl>
+<p><br>
+</p>
+<table style="background-color:#78CDF8;color:#000000;">
+<tbody><tr>
+<td style="padding: 10px;">
+<p>For any questions and more cool ideas to share, please visit <a rel="nofollow" class="external text" href="http://www.dfrobot.com/forum/"><b>DFRobot Forum</b></a>
+</p>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="More">More</span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://www.dfrobot.com/image/data/DFR0009/LCDKeypad%20Shield%20V1.0%20SCH.pdf">LCDKeypad Shield v1.1 Schematics</a>
+</li>
+<li>Old version: <a rel="nofollow" class="external text" href="http://www.dfrobot.com/wiki/index.php/Arduino_LCD_KeyPad_Shield_%28SKU:_DFR0009%29">LCD Keypad Shield Old Wiki Doc</a>
+</li>
+<li><a rel="nofollow" class="external text" href="http://www.dfrobot.com/image/data/DFR0009/LCDKeypad%20Shield%20V1.0%20SCH.pdf">LCDKeypad Shield Schematics V1.0</a>
+</li>
+</ul>
+<p><br><br>
+<a href="http://www.dfrobot.com/wiki/index.php?title=File:Nextredirectltr.png" class="image"><img alt="Nextredirectltr.png" src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/Nextredirectltr.png" height="20" width="42"></a>Go Shopping <a rel="nofollow" class="external text" href="http://www.dfrobot.com/index.php?route=product/product&amp;keyword=DFR0009&amp;category_id=0&amp;description=1&amp;model=1&amp;product_id=51">Click to buy on DFRobot Store)</a>
+</p><script type="text/javascript">SyntaxHighlighter.autoloader('cpp /wiki/extensions/SyntaxHighlighter/syntaxhighlighter/scripts/shBrushCpp.js'); SyntaxHighlighter.all();</script>
+ 
+ 
+</div> <div class="printfooter">
+Retrieved from "<a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;oldid=33304">http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;oldid=33304</a>" </div>
+<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://www.dfrobot.com/wiki/index.php?title=Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://www.dfrobot.com/wiki/index.php?title=Category:Product_Manual" title="Category:Product Manual">Product Manual</a></li><li><a href="http://www.dfrobot.com/wiki/index.php?title=Category:DFR_Series" title="Category:DFR Series">DFR Series</a></li><li><a href="http://www.dfrobot.com/wiki/index.php?title=Category:Shields" title="Category:Shields">Shields</a></li><li><a href="http://www.dfrobot.com/wiki/index.php?title=Category:LCDs" title="Category:LCDs">LCDs</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="http://www.dfrobot.com/wiki/index.php?title=Category:Source" title="Category:Source">Source</a></li><li><a href="http://www.dfrobot.com/wiki/index.php?title=Category:Diagram" title="Category:Diagram">Diagram</a></li></ul></div></div> <div class="visualClear"></div>
+</div>
+</div>
+<div id="mw-navigation">
+<h2>Navigation menu</h2>
+<div id="mw-head">
+<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+<h3 id="p-personal-label">Personal tools</h3>
+<ul>
+<li id="pt-login"><a href="http://www.dfrobot.com/wiki/index.php?title=Special:UserLogin&amp;returnto=LCD+KeyPad+Shield+For+Arduino+SKU%3A+DFR0009" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li> </ul>
+</div>
+<div id="left-navigation">
+<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+<h3 id="p-namespaces-label">Namespaces</h3>
+<ul>
+<li id="ca-nstab-main" class="selected"><span><a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li>
+<li id="ca-talk" class="new"><span><a href="http://www.dfrobot.com/wiki/index.php?title=Talk:LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;action=edit&amp;redlink=1" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></span></li>
+</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+<h3 id="mw-vector-current-variant">
+</h3>
+<h3 tabindex="0" id="p-variants-label"><span>Variants</span><a tabindex="-1" href="#"></a></h3>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+</div>
+<div id="right-navigation">
+<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+<h3 id="p-views-label">Views</h3>
+<ul>
+<li id="ca-view" class="selected"><span><a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009">Read</a></span></li>
+<li id="ca-viewsource"><span><a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e">View source</a></span></li>
+<li id="ca-history" class="collapsible"><span><a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>
+</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+<h3 tabindex="0" id="p-cactions-label"><span>Actions</span><a tabindex="-1" href="#"></a></h3>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+<div id="p-search" role="search">
+<h3><label for="searchInput">Search</label></h3>
+<form action="/wiki/index.php" id="searchform">
+<div id="simpleSearch">
+<input autocomplete="off" tabindex="1" name="search" placeholder="Search" title="Search Robot Wiki [alt-shift-f]" accesskey="f" id="searchInput"> <button type="submit" name="button" title="Search the pages for this text" id="searchButton"><img src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/search-ltr.png" alt="Search" height="13" width="12"></button> <input name="title" value="Special:Search" type="hidden">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="collapsible-nav" id="mw-panel">
+<div id="p-logo" role="banner"><a style="background-image: url(/wiki/skins/common/images/wiki.png);" href="http://www.dfrobot.com/wiki/index.php?title=Main_Page" title="Visit the main page"></a></div>
+<div class="portal first persistent" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+<h3 id="p-navigation-label">Navigation</h3>
+<div class="body">
+<ul>
+</ul>
+</div>
+</div>
+<div class="portal expanded" role="navigation" id="p-Product_Manual" aria-labelledby="p-Product_Manual-label">
+<h3 tabindex="2" id="p-Product_Manual-label"><a href="#">Product Manual</a></h3>
+<div style="display: block;" class="body">
+<ul>
+<li id="n-DFR-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#DFR_Series">DFR Series</a></li>
+<li id="n-SEN-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#SEN_Series">SEN Series</a></li>
+<li id="n-DRI-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#DRI_Series">DRI Series</a></li>
+<li id="n-TEL-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#TEL_Series">TEL Series</a></li>
+<li id="n-FIT-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#FIT_Series">FIT Series</a></li>
+<li id="n-ROB-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#ROB_Series">ROB Series</a></li>
+<li id="n-SER-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#SER_Series">SER Series</a></li>
+<li id="n-TOY-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#TOY_Series">TOY Series</a></li>
+<li id="n-KIT-Series"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#KIT_Series">KIT Series</a></li>
+<li id="n-Selector-Guide"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#Selector_Guide">Selector Guide</a></li>
+<li id="n-Review"><a href="http://www.dfrobot.com/wiki/index.php?title=Review">Review</a></li>
+<li id="n-Project"><a href="http://www.dfrobot.com/wiki/index.php?title=Project">Project</a></li>
+<li id="n-Tutorial"><a href="http://www.dfrobot.com/wiki/index.php?title=Tutorial">Tutorial</a></li>
+<li id="n-Assembly-Guide"><a href="http://www.dfrobot.com/wiki/index.php?title=Assembly_Guide">Assembly Guide</a></li>
+</ul>
+</div>
+</div>
+<div class="portal collapsed" role="navigation" id="p-Tutorials" aria-labelledby="p-Tutorials-label">
+<h3 tabindex="3" id="p-Tutorials-label"><a href="#">Tutorials</a></h3>
+<div class="body">
+<ul>
+<li id="n-User-Manual"><a href="http://www.dfrobot.com/wiki/index.php?title=Product_Manual#User_Manual">User Manual</a></li>
+<li id="n-help"><a href="http://www.dfrobot.com/wiki/index.php?title=Help:Contents" title="The place to find out">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="portal collapsed" role="navigation" id="p-Menu" aria-labelledby="p-Menu-label">
+<h3 tabindex="4" id="p-Menu-label"><a href="#">Menu</a></h3>
+<div class="body">
+<ul>
+<li id="n-HOME"><a href="http://www.dfrobot.com/" rel="nofollow">HOME</a></li>
+<li id="n-STORE"><a href="http://www.dfrobot.com/store" rel="nofollow">STORE</a></li>
+<li id="n-BLOG"><a href="http://www.dfrobot.com/blog" rel="nofollow">BLOG</a></li>
+<li id="n-FORUM"><a href="http://www.dfrobot.com/blog" rel="nofollow">FORUM</a></li>
+<li id="n-COMMUNITY"><a href="https://www.google.com/+dfrobot" rel="nofollow">COMMUNITY</a></li>
+</ul>
+</div>
+</div>
+<div class="portal collapsed" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+<h3 tabindex="5" id="p-tb-label"><a href="#">Tools</a></h3>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a href="http://www.dfrobot.com/wiki/index.php?title=Special:WhatLinksHere/LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+<li id="t-recentchangeslinked"><a href="http://www.dfrobot.com/wiki/index.php?title=Special:RecentChangesLinked/LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="http://www.dfrobot.com/wiki/index.php?title=Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+<li id="t-print"><a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>
+<li id="t-permalink"><a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;oldid=33304" title="Permanent link to this revision of the page">Permanent link</a></li>
+<li id="t-info"><a href="http://www.dfrobot.com/wiki/index.php?title=LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009&amp;action=info">Page information</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer" role="contentinfo">
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 5 January 2016, at 11:23.</li>
+<li id="footer-info-viewcount">This page has been accessed 83,439 times.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a href="http://www.dfrobot.com/wiki/index.php?title=Robot_Wiki:Privacy_policy" title="Robot Wiki:Privacy policy">Privacy policy</a></li>
+<li id="footer-places-about"><a href="http://www.dfrobot.com/wiki/index.php?title=Robot_Wiki:About" title="Robot Wiki:About">About Robot Wiki</a></li>
+<li id="footer-places-disclaimer"><a href="http://www.dfrobot.com/wiki/index.php?title=Robot_Wiki:General_disclaimer" title="Robot Wiki:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul id="footer-icons" class="noprint">
+<li id="footer-poweredbyico">
+<a href="http://www.mediawiki.org/"><img src="LCD%20KeyPad%20Shield%20For%20Arduino%20SKU%20%20DFR0009%20-%20Robot%20Wiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" height="31" width="88"></a>
+</li>
+</ul>
+<div style="clear:both"></div>
+</div>
+<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","skins.vector.collapsibleNav"],null,true);
+}</script>
+<script>if(window.mw){
+mw.loader.state({"site":"ready"});
+}</script>
+ 
+
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

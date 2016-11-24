@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html hasbrowserhandlers="true"><head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width; user-scalable=0">
+
+  <link rel="stylesheet" href="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/aboutReader.css" type="text/css">
+
+  <script type="text/javascript;version=1.8" src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/aboutReader.js"></script>
+<title>Arduino TCS230 Color Recognition Sensor module</title><link href="http://www.geeetech.com/favicon.ico" rel="shortcut icon"></head>
+
+<body class="light sans-serif loaded">
+  <div id="container" class="container font-size5">
+    <div dir="ltr" style="display: block;" id="reader-header" class="header">
+      <style scoped="">
+        @import url("chrome://global/skin/aboutReaderControls.css");
+      </style>
+      <a href="http://www.geeetech.com/wiki/index.php/Arduino_TCS230_Color_Recognition_Sensor_module" id="reader-domain" class="domain">geeetech.com</a>
+      <div class="domain-border"></div>
+      <h1 id="reader-title">Arduino TCS230 Color Recognition Sensor module</h1>
+      <div id="reader-credits" class="credits"></div>
+    </div>
+
+    <div class="content">
+      <style scoped="">
+        @import url("chrome://global/skin/aboutReaderContent.css");
+      </style>
+      <div style="display: block;" dir="ltr" id="moz-reader-content"><div xml:base="http://www.geeetech.com/wiki/index.php/Arduino_TCS230_Color_Recognition_Sensor_module" id="readability-page-1" class="page"><div role="main" class="mw-body" id="content"><a id="top"></a><div id="bodyContent"><p id="siteSub">From Geeetech Wiki</p><div class="mw-content-ltr" dir="ltr" id="mw-content-text" lang="en"><h2><span id="Introduction" class="mw-headline">Introduction</span></h2><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC230.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/400px-TSC230.jpg" alt="TSC230.jpg" height="304" width="400"></a>
+</p><p>This breakout board is a color sensor based on TAOS TCS230 
+programmable color light to frequency converter which combines 
+configurable silicon photodiodes and a current –to-frequency convertor 
+on single monolithic CMOS integrated cicuit. 
+</p><p>The light-to-frequency converter reads 8X8 array of photodiodes, 
+each array could filter red, green, blue light or clear from light 
+source via two control pins(S2,S3) and output a square wave(50% duty 
+cycle) with frequency directly proportional to light 
+intensity(irradiance). The full-scale output frequency can be scaled via
+ two control input pin(S0,S1). Digital inputs and digital output allows 
+direct interface to a microcontroller or other digital logic circuitry.
+</p><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC230_function.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/600px-TSC230_function.jpg" alt="TSC230 function.jpg" height="167" width="600"></a>
+</p><h2><span id="Features" class="mw-headline">Features</span></h2><ul>
+<li>High-Resolution Conversion of Light Intensity to Frequency 
+</li>
+<li>Programmable Color and Full-Scale Output Frequency 
+</li>
+<li>Communicates Directly With a Microcontroller 
+</li>
+<li>Single-Supply Operation (2.7 V to 5.5 V) 
+</li>
+<li>Power Down Feature 
+</li>
+<li>Nonlinearity Error Typically 0.2% at 50 kHz 
+</li>
+<li>Stable 200 ppm/°C Temperature Coefficient 
+</li>
+<li>Low-Profile Surface-Mount Package
+</li>
+</ul><h2><span id="Pin_definition_and_working_principle" class="mw-headline">Pin definition and working principle</span></h2><h3><span id="Pin_definition" class="mw-headline">Pin definition</span></h3><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC230_pin.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/TSC230_pin.jpg" alt="TSC230 pin.jpg" height="209" width="318"></a>
+</p><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC230_pin1.jpg"><img moz-reader-center="true" src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/TSC230_pin1.jpg" alt="TSC230 pin1.jpg" height="203" width="873"></a>
+</p><h3><span id="Working_principle" class="mw-headline">Working principle</span></h3><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:RGB.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/RGB.jpg" alt="RGB.jpg" height="248" width="315"></a>
+</p><p><br>
+As we know, according to the RGB color model, a broad array colors is 
+produced by red green and blue light added together in various ways. In 
+other word, if we know the RGB data which constitutes different kind of 
+color, we can get the certain color we test. With a certain color filter
+ is selected(e.g red filter), TSC230 color sensor allows red light to 
+get through alone and prevent other color green and blue light, so we 
+can get the intensity of the red color. Blue and green light of 
+intensity can be got in the same way.
+</p><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC_frequency.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/TSC_frequency.jpg" alt="TSC frequency.jpg" height="130" width="284"></a>
+</p><p>TCS230 includes 8X8 array of photodiodes, 16 photodiodes have 
+blue filters, 16 photodiodes have green filters, 16 photodiodes have 
+green filters and 16 photodiodes are clear with no filters.  With the 
+different combination of S2 and S3, we can choose different type of 
+color filter The full-scale output frequency can be scaled via two 
+control input S0 and S1, by which we can output the different frequency 
+coefficient (100%, 20%, 2%).
+</p><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC_filter.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/TSC_filter.jpg" alt="TSC filter.jpg" height="128" width="379"></a>
+</p><h2><span id="Wiring_diagram" class="mw-headline">Wiring diagram</span></h2><p>Here
+ is the guide illustrates how to connect an Arduino to TCS230 Color 
+Recognition Sensor module. The following is a table describing which 
+pins on the Arduino should be connected to the pins on the TCS230 Color 
+Sensor: 
+</p><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC230_1.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/450px-TSC230_1.jpg" alt="TSC230 1.jpg" height="296" width="450"></a>
+</p><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC_table.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/TSC_table.jpg" alt="TSC table.jpg" height="209" width="266"></a>
+</p><h2><span id="Example_code" class="mw-headline">Example code</span></h2><pre>int s0=3,s1=4,s2=5,s3=6;
+int flag=0;
+int counter=0;
+int countR=0,countG=0,countB=0;
+void setup()
+{
+Serial.begin(115200);
+pinMode(s0,OUTPUT);
+pinMode(s1,OUTPUT); 
+pinMode(s2,OUTPUT);
+pinMode(s3,OUTPUT);
+}
+void TCS()
+{
+  digitalWrite(s1,HIGH);
+  digitalWrite(s0,LOW);
+  flag=0;
+  attachInterrupt(0, ISR_INTO, CHANGE);
+  timer2_init();
+}
+void ISR_INTO()
+{
+  counter++;
+}
+void timer2_init(void)
+{
+  TCCR2A=0x00;
+  TCCR2B=0x07; //the clock frequency source 1024 points
+  TCNT2= 100;    //10 ms overflow again
+  TIMSK2 = 0x01; //allow interrupt
+}
+int i=0;
+ISR(TIMER2_OVF_vect)//the timer 2, 10ms interrupt overflow again. Internal overflow interrupt executive function
+{
+TCNT2=100;
+flag++;
+if(flag==1)
+ {
+   counter=0;
+ }
+else if(flag==2)
+  {
+   digitalWrite(s2,LOW);
+   digitalWrite(s3,LOW); 
+   countR=counter/1.051;
+   Serial.print("red=");
+   Serial.println(countR,DEC);
+   digitalWrite(s2,HIGH);
+   digitalWrite(s3,HIGH);   
+  }
+else if(flag==3)
+   {
+    countG=counter/1.0157;
+   Serial.print("green=");
+   Serial.println(countG,DEC);
+    digitalWrite(s2,LOW);
+    digitalWrite(s3,HIGH); 
+    }
+else if(flag==4)
+   {
+    countB=counter/1.114;
+   Serial.print("blue=");
+   Serial.println(countB,DEC);
+    digitalWrite(s2,LOW);
+    digitalWrite(s3,LOW);
+    }
+else
+    {
+    flag=0; 
+     TIMSK2 = 0x00;
+    }
+    counter=0;
+    delay(2);
+}
+void loop()
+{
+ delay(10);
+ TCS();
+ if((countR&gt;10)||(countG&gt;10)||(countB&gt;10))
+  {
+     if((countR&gt;countG)&amp;&amp;(countR&gt;countB))
+      {
+           Serial.print("red");
+           Serial.print("\n");
+           delay(1000);
+      }
+     else if((countG&gt;=countR)&amp;&amp;(countG&gt;countB))
+      {
+           Serial.print("green");
+           Serial.print("\n");
+           delay(1000);
+      } 
+    else if((countB&gt;countG)&amp;&amp;(countB&gt;countR))
+     {
+           Serial.print("blue");
+           Serial.print("\n");
+          delay(1000);
+     }
+   }
+ else 
+ {
+    delay(1000);       
+ }
+}
+</pre><p><a class="image" href="http://www.geeetech.com/wiki/index.php/File:TSC_COM.jpg"><img src="Arduino%20TCS230%20Color%20Recognition%20Sensor%20module_files/TSC_COM.jpg" alt="TSC COM.jpg" height="367" width="369"></a>
+</p><h2><span id="How_to_buy" class="mw-headline">How to buy</span></h2><p>Click here to buy <a href="http://www.geeetech.com/arduino-tcs230-color-recognition-sensor-module-for-mcuavr-p-412.html" class="external text" rel="nofollow">Arduino TCS230 Color Recognition Sensor module</a>
+</p></div></div></div></div></div>
+    </div>
+
+    <div>
+      <style scoped="">
+        @import url("chrome://global/skin/aboutReaderControls.css");
+      </style>
+      <div style="display: none;" id="reader-message"></div>
+    </div>
+
+    <div style="display: none;" id="reader-footer" class="footer">
+      <style scoped="">
+        @import url("chrome://global/skin/aboutReaderControls.css");
+      </style>
+      <button id="remove-button" class="button remove-button">
+    </button></div>
+  </div>
+
+  <ul id="reader-toolbar" class="toolbar">
+    <style scoped="">
+      @import url("chrome://global/skin/aboutReaderControls.css");
+    </style>
+    <li><button title="Close Reader View" id="close-button" class="button close-button"></button></li>
+    <li><button title="Share" id="share-button" class="button share-button"></button></li>
+    <ul id="style-dropdown" class="dropdown">
+      <li><button title="Type controls" class="dropdown-toggle button style-button"></button></li>
+      <li id="reader-popup" class="dropdown-popup">
+        <div id="font-type-buttons"><button class="sans-serif-button selected"><div class="name">Aa</div><div class="description">Sans-serif</div></button><button class="serif-button"><div class="name">Aa</div><div class="description">Serif</div></button></div>
+        <hr>
+        <div id="font-size-buttons">
+          <button id="font-size-minus" class="minus-button">
+          </button><button id="font-size-sample">Aa</button><button id="font-size-plus" class="plus-button">
+        </button></div>
+        <hr>
+        <div id="color-scheme-buttons"><button class="light-button selected"><div class="name">Light</div></button><button class="dark-button"><div class="name">Dark</div></button><button class="sepia-button"><div class="name">Sepia</div></button></div>
+        <div class="dropdown-arrow">
+      </div></li>
+    </ul>
+    <li><button title="Add to Reading List" id="toggle-button" class="button toggle-button" hidden="true"></button></li>
+    <li><button id="list-button" class="button list-button" hidden="true"></button></li>
+    <li><button id="pocket-button" class="button"></button></li>
+  </ul>
+
+
+
+
+</body></html>

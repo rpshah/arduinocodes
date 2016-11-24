@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html slick-uniqueid="3" prefix="og: http://ogp.me/ns#" class="html_stretched responsive av-preloader-disabled av-default-lightbox  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking html_mobile_menu_tablet html_disabled html_header_searchicon html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_entry_id_2911  avia_desktop  js_active  avia_transform  avia_transform3d  avia-mozilla avia-mozilla-43 avia-windows" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+<!-- page title, displayed in your browser bar -->
+<title>Cloud Temperature Logger with the ESP8266 - Open Home Automation</title>
+
+<link rel="icon" href="https://www.openhomeautomation.net/wp-content/uploads/2013/04/social_media_icon.png" type="image/png">
+
+<!-- mobile setting -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Scripts/CSS and wp_head hook -->
+
+<!-- This site is optimized with the Yoast SEO plugin v3.0.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cloud Temperature Logger with the ESP8266 - Open Home Automation">
+<meta property="og:description" content="The ESP8266 is an amazingly cheap &amp; small WiFi chip that can be used for several home automation applications. In this project, we are going to use it to automatically log temperature (and humidity) measurements in the cloud, and display these measurements inside an online dashboard. By following this tutorial, you will be able to …">
+<meta property="og:url" content="http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/">
+<meta property="og:site_name" content="Open Home Automation">
+<meta property="article:section" content="IoT">
+<meta property="article:published_time" content="2015-04-22T00:00:31+00:00">
+<meta property="article:modified_time" content="2015-07-22T10:55:22+00:00">
+<meta property="og:updated_time" content="2015-07-22T10:55:22+00:00">
+<meta property="og:image" content="https://www.openhomeautomation.net/wp-content/uploads/2015/04/featured.jpg">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="Open Home Automation » Feed" href="http://www.openhomeautomation.net/feed/">
+<link rel="alternate" type="application/rss+xml" title="Open Home Automation » Comments Feed" href="http://www.openhomeautomation.net/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Open Home Automation » Cloud Temperature Logger with the ESP8266 Comments Feed" href="http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/feed/">
+
+<!-- google webfont font replacement -->
+<link rel="stylesheet" id="avia-google-webfont" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/css.css" type="text/css" media="all"> 
+		<script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/a_004.htm" async=""></script><script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/sdk.js" id="facebook-jssdk"></script><script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/analytics.js" async=""></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/www.openhomeautomation.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.1"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d");return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(String.fromCharCode(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(String.fromCharCode(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(String.fromCharCode(55357,56835),0,0):e.fillText(String.fromCharCode(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/wp-emoji-release.js"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="woothemes-sensei-frontend-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/frontend.css" type="text/css" media="screen">
+<link rel="stylesheet" id="avia-grid-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/grid.css" type="text/css" media="all">
+<link rel="stylesheet" id="avia-base-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/base.css" type="text/css" media="all">
+<link rel="stylesheet" id="avia-layout-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/layout.css" type="text/css" media="all">
+<link rel="stylesheet" id="avia-scs-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/shortcodes.css" type="text/css" media="all">
+<link rel="stylesheet" id="avia-popup-css-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/magnific-popup.css" type="text/css" media="screen">
+<link rel="stylesheet" id="avia-media-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/mediaelementplayer.css" type="text/css" media="screen">
+<link rel="stylesheet" id="avia-print-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/print.css" type="text/css" media="print">
+<link rel="stylesheet" id="avia-dynamic-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/enfold.css" type="text/css" media="all">
+<link rel="stylesheet" id="avia-custom-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/custom.css" type="text/css" media="all">
+<link rel="stylesheet" id="mc4wp-form-basic-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/form-basic.css" type="text/css" media="all">
+<link rel="stylesheet" id="enlighter-local-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/EnlighterJS.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/jquery_002.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/jquery-migrate.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/avia-compat.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/mootools-core-yc.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/EnlighterJS.js"></script>
+<link rel="https://api.w.org/" href="http://www.openhomeautomation.net/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.openhomeautomation.net/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.openhomeautomation.net/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.4.1">
+<link rel="shortlink" href="http://wp.me/p50v0S-KX">
+<link rel="alternate" type="application/json+oembed" href="http://www.openhomeautomation.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.openhomeautomation.net%2Fcloud-temperature-logger-esp8266%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://www.openhomeautomation.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.openhomeautomation.net%2Fcloud-temperature-logger-esp8266%2F&amp;format=xml">
+
+  <script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/snippet.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function( $ ) {
+      var tsid = 5093;
+      Georiot.amazon.convertToGeoRiotLinks(tsid, false);
+    });
+  </script>
+<script type="text/javascript"><!--
+function powerpress_pinw(pinw_url){window.open(pinw_url, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+//-->
+</script>
+<style type="text/css">img#wpstats{display:none}</style><link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="alternate" type="application/rss+xml" title="Open Home Automation RSS2 Feed" href="http://www.openhomeautomation.net/feed/">
+<link rel="pingback" href="https://www.openhomeautomation.net/xmlrpc.php">
+<link rel="author" href="https://plus.google.com/+openhomeautomation/posts"><!--[if lt IE 9]><script src="https://www.openhomeautomation.net/wp-content/themes/enfold/js/html5shiv.js"></script><![endif]--><script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/gumroad.js"></script><script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/gumroad-overlay-8d8926773f2b5d4127f8d17d9e7a95b3.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/sendowl.js"></script>
+<script type="text/javascript">/* <![CDATA[ */window.addEvent('domready', function(){if (typeof EnlighterJS == "undefined"){return;};EnlighterJS.Util.Init('pre.EnlighterJSRAW', 'code.EnlighterJSRAW', {"language":"cpp","theme":"git","indent":2,"hover":"hoverEnabled","showLinenumbers":true,"rawButton":true,"infoButton":true,"windowButton":true,"rawcodeDoubleclick":false,"grouping":true,"cryptex":{"enabled":true,"email":"mail@example.tld"}});});/* ]]> */</script>
+
+
+<!--
+Debugging Info for Theme support: 
+
+Theme: Enfold
+Version: 3.4.7
+Installed: enfold
+AviaFramework Version: 2.3
+AviaBuilder Version: 0.8
+ML:512-PU:57-PLA:20
+WP:4.4.1
+Updates: enabled
+-->
+
+<style type="text/css">
+@font-face {font-family: 'entypo-fontello'; font-weight: normal; font-style: normal;
+src: url('https://www.openhomeautomation.net/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3');
+src: url('https://www.openhomeautomation.net/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.eot?v=3#iefix') format('embedded-opentype'), 
+url('https://www.openhomeautomation.net/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff?v=3') format('woff'), 
+url('https://www.openhomeautomation.net/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.ttf?v=3') format('truetype'), 
+url('https://www.openhomeautomation.net/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.svg?v=3#entypo-fontello') format('svg');
+} #top .avia-font-entypo-fontello, body .avia-font-entypo-fontello, html body [data-av_iconfont='entypo-fontello']:before{ font-family: 'entypo-fontello'; }
+</style><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-38034246-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/embed.js" async="" type="text/javascript"></script><script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/count.js" type="text/javascript" async=""></script><script src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/count-data.js"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/services.css"><style type="text/css" id="av-browser-width-mm"></style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow-x:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://z-m-static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><style type="text/css">a.gumroad-button { background-color: white !important; background-image: url("https://gumroad.com/button/button_bar.jpg") !important; background-repeat: repeat-x !important; border-radius: 4px !important; box-shadow: rgba(0, 0, 0, .4) 0 0 2px !important; color: #999 !important; display: inline-block !important; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-size: 16px !important; font-style: normal !important; font-weight: 500 !important; line-height: 50px !important; padding: 0 15px !important; text-shadow: none !important; text-decoration: none !important; } .gumroad-button-logo { background-image: url("https://gumroad.com/button/button_logo.png") !important; background-size: cover !important; height: 17px !important; width: 16px !important; display: inline-block !important; margin-bottom: -3px !important; margin-right: 15px !important; } .gumroad-loading-indicator { background: white; border-radius: 50%; box-shadow: 0 1px 2px rgba(0, 0, 0, .1); box-sizing: border-box; display: none; height: 60px; left: 50% !important; margin-left: -30px !important; margin-top: -30px !important; padding: 10px; position: fixed; top: 50% !important; width: 60px; z-index: 99997; } .gumroad-loading-indicator i { background: url("https://gumroad.com/js/loading-rainbow.svg"); height: 40px; width: 40px; display: inline-block; background-size: contain; -webkit-animation: gumroad-spin 1.5s infinite linear; animation: gumroad-spin 1.5s infinite linear; } .gumroad-overlay-iframe { position: fixed !important; overflow: hidden !important; z-index: 99998 !important; top: 0 !important; right: 0 !important; width: 0; height: 0; border: none !important; margin: 0 !important; padding: 0 !important; zoom: 1; } @-webkit-keyframes gumroad-spin { 0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); } 100% { -webkit-transform: rotate(359deg); transform: rotate(359deg); } } @keyframes gumroad-spin { 0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); } 100% { -webkit-transform: rotate(359deg); transform: rotate(359deg); } } </style><script charset="UTF-8" async="" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/alfie.js"></script></head>
+
+
+
+
+<body id="top" class="single single-post postid-2911 single-format-standard stretched open_sans " itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+	
+	<div id="wrap_all"><a id="advanced_menu_hide" href="#" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"></a><ul id="mobile-advanced" class=""><li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a href="http://www.openhomeautomation.net/about/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">About</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-2"><a href="http://www.openhomeautomation.net/blog/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Blog</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+
+
+<ul class="sub-menu">
+	<li id="menu-item-2392" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://www.openhomeautomation.net/blog" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Explore Our Projects</span></a></li>
+	<li id="menu-item-2391" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.openhomeautomation.net/submit/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Submit Your Project</span></a></li>
+</ul>
+</li>
+<li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-3"><a href="http://www.openhomeautomation.net/start-here/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Start Here</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-2136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-4"><a href="http://www.openhomeautomation.net/products/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Products</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-5"><a href="http://www.openhomeautomation.net/resources/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Resources</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+</ul>
+
+	
+<header id="header" class=" header_color light_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky av_header_shrinking av_header_stretch_disabled av_mobile_menu_tablet av_header_searchicon av_header_unstick_top_disabled av_bottom_nav_disabled  av_alternate_logo_active av_header_border_disabled header-scrolled header-scrolled-full" role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+
+		<div id="header_main" class="container_wrap container_wrap_logo">
+	
+        <div style="height: 44px; line-height: 44px;" class="container av-logo-container"><div class="inner-container"><strong class="logo"><a style="max-height: 44px;" href="http://www.openhomeautomation.net/"><img style="max-height: 44px;" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/website_logo_2.png" alt="Open Home Automation" height="100" width="300"></a></strong><a id="advanced_menu_toggle" href="#" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"></a><nav class="main_menu" data-selectname="Select a page" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement"><div class="avia-menu av-main-nav-wrap av_menu_icon_beside"><ul id="avia-menu" class="menu av-main-nav"><li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a style="height: 44px; line-height: 44px;" href="http://www.openhomeautomation.net/about/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">About</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-2 dropdown_ul_available"><a style="height: 44px; line-height: 44px;" href="http://www.openhomeautomation.net/blog/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Blog</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span><span class="dropdown_available"></span></a>
+
+
+<ul style="display: block; opacity: 0; visibility: hidden;" class="sub-menu">
+	<li id="menu-item-2392" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://www.openhomeautomation.net/blog" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Explore Our Projects</span></a></li>
+	<li id="menu-item-2391" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.openhomeautomation.net/submit/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Submit Your Project</span></a></li>
+</ul>
+</li>
+<li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-3"><a style="height: 44px; line-height: 44px;" href="http://www.openhomeautomation.net/start-here/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Start Here</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-2136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-4"><a style="height: 44px; line-height: 44px;" href="http://www.openhomeautomation.net/products/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Products</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-5"><a style="height: 44px; line-height: 44px;" href="http://www.openhomeautomation.net/resources/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Resources</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown">
+							<a style="height: 44px; line-height: 44px;" href="https://www.openhomeautomation.net/cloud-temperature-logger-esp8266/?s=" rel="nofollow" data-avia-search-tooltip="
+
+&lt;form action=&quot;http://www.openhomeautomation.net/&quot; id=&quot;searchform&quot; method=&quot;get&quot; class=&quot;&quot;&gt;
+	&lt;div&gt;
+		&lt;input type=&quot;submit&quot; value=&quot;&quot; id=&quot;searchsubmit&quot; class=&quot;button avia-font-entypo-fontello&quot; /&gt;
+		&lt;input type=&quot;text&quot; id=&quot;s&quot; name=&quot;s&quot; value=&quot;&quot; placeholder='Search' /&gt;
+			&lt;/div&gt;
+&lt;/form&gt;" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"><span class="avia_hidden_link_text">Search</span></a>
+	        		   </li></ul></div><ul class="noLightbox social_bookmarks icon_count_5"><li class="social_bookmarks_twitter av-social-link-twitter social_icon_1"><a target="_blank" href="https://twitter.com/OpenHomeAuto" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="Twitter"><span class="avia_hidden_link_text">Twitter</span></a></li><li class="social_bookmarks_gplus av-social-link-gplus social_icon_2"><a target="_blank" href="https://plus.google.com/+openhomeautomation/posts" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="Gplus"><span class="avia_hidden_link_text">Gplus</span></a></li><li class="social_bookmarks_facebook av-social-link-facebook social_icon_3"><a target="_blank" href="https://www.facebook.com/OpenHomeAutomation" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="Facebook"><span class="avia_hidden_link_text">Facebook</span></a></li><li class="social_bookmarks_youtube av-social-link-youtube social_icon_4"><a target="_blank" href="http://www.youtube.com/openhomeautomation" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="Youtube"><span class="avia_hidden_link_text">Youtube</span></a></li><li class="social_bookmarks_rss av-social-link-rss social_icon_5"><a href="http://www.openhomeautomation.net/feed/" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="Rss"><span class="avia_hidden_link_text">Rss</span></a></li></ul></nav></div> </div> 
+		<!-- end container_wrap-->
+		</div>
+		
+		<div class="header_bg"></div>
+
+<!-- end header -->
+</header>
+		
+	<div id="main" data-scroll-offset="88">
+
+	
+		<div class="container_wrap container_wrap_first main_color sidebar_right">
+
+			<div class="container template-blog template-single-blog ">
+
+				<main class="content units av-content-small alpha " role="main" itemscope="itemscope" itemtype="https://schema.org/Blog">
+
+                    <article class="post-entry post-entry-type-standard post-entry-2911 post-loop-1 post-parity-odd post-entry-last single-big with-slider post-2911 post type-post status-publish format-standard has-post-thumbnail hentry category-iot category-temperature category-wifi" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" itemprop="blogPost"><div class="big-preview single-big"><a class="lightbox-added" href="https://www.openhomeautomation.net/wp-content/uploads/2015/04/featured-1030x394.jpg" title="Cloud Temperature Logger with the ESP8266"><img src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/featured-845x321.jpg" class="attachment-entry_with_sidebar size-entry_with_sidebar wp-post-image" alt="featured" srcset="https://www.openhomeautomation.net/wp-content/uploads/2015/04/featured-100x38.jpg 100w, https://www.openhomeautomation.net/wp-content/uploads/2015/04/featured-845x321.jpg 845w" sizes="(max-width: 845px) 100vw, 845px" height="321" width="845"><span class="image-overlay overlay-type-image"><span class="image-overlay-inside"></span></span></a></div><div class="blog-meta"></div><div class="entry-content-wrapper clearfix standard-content"><header class="entry-content-header"><h1 class="post-title entry-title" itemprop="headline">	<a href="http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/" rel="bookmark" title="Permanent Link: Cloud Temperature Logger with the ESP8266">Cloud Temperature Logger with the ESP8266			<span class="post-format-icon minor-meta"></span>	</a></h1><span class="post-meta-infos"><time class="date-container minor-meta updated" itemprop="datePublished" datetime="2015-04-22T00:00:31+00:00">April 22, 2015</time><span class="text-sep text-sep-date">/</span><span class="comment-container minor-meta"><a data-disqus-identifier="2911 http://www.openhomeautomation.net/?p=2911" href="http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/#disqus_thread" class="comments-link">20 Comments</a></span><span class="text-sep text-sep-comment">/</span><span class="blog-categories minor-meta">in <a href="http://www.openhomeautomation.net/category/iot/" rel="tag">IoT</a>, <a href="http://www.openhomeautomation.net/category/temperature/" rel="tag">Temperature</a>, <a href="http://www.openhomeautomation.net/category/wifi/" rel="tag">WiFi</a> </span><span class="text-sep text-sep-cat">/</span><span class="blog-author minor-meta">by <span class="entry-author-link" itemprop="name"><span class="vcard author"><span class="fn"><a href="http://www.openhomeautomation.net/author/admin/" title="Posts by Marco Schwartz" rel="author">Marco Schwartz</a></span></span></span></span></span></header><div class="entry-content" itemprop="text"><p>The
+ ESP8266 is an amazingly cheap &amp; small WiFi chip that can be used 
+for several home automation applications. In this project, we are going 
+to use it to automatically log temperature (and humidity) measurements 
+in the cloud, and display these measurements inside an online dashboard.</p>
+<p>By following this tutorial, you will be able to build a small &amp; 
+cheap measurement platform that logs data in the cloud. Of course, this 
+can be applied to several type of sensors, like motion detectors. Let’s 
+dive in!</p>
+<p><span id="more-2911"></span></p>
+<h3>Hardware &amp; Software Requirements</h3>
+<p>For this project, you will of course need an ESP8266 chip. You can for example use an&nbsp;<a href="http://target.georiot.com/Proxy.ashx?TSID=5093&amp;GR_URL=http%3A%2F%2Fwww.amazon.com%2F-WIFI-ESP8266-DEV-ESP8266-internet-breadboard-veroboard%2Fdp%2FB00YY3BAX0%2Fref%3Dsr_1_3%3Fie%3DUTF8%26qid%3D1437558886%26sr%3D8-3%26keywords%3Dolimex%2Besp8266">Olimex ESP8266 module</a>.</p>
+<p>You will also need a temperature sensor.&nbsp;I used a DHT11 sensor, 
+which is very easy to use &amp; that will allow us to measure the 
+ambient temperature &amp; humidity.</p>
+<p>You will also need a 3.3V FTDI USB module to program the ESP8266 
+chip. Finally, you will also need some jumper wires &amp; a breadboard.</p>
+<p>This is a list of all the components that will be used in this guide:</p>
+<ul>
+<li><a href="http://target.georiot.com/Proxy.ashx?TSID=5093&amp;GR_URL=http%3A%2F%2Fwww.amazon.com%2F-WIFI-ESP8266-DEV-ESP8266-internet-breadboard-veroboard%2Fdp%2FB00YY3BAX0%2Fref%3Dsr_1_3%3Fie%3DUTF8%26qid%3D1437558886%26sr%3D8-3%26keywords%3Dolimex%2Besp8266">ESP8266 Olimex module</a></li>
+<li><a href="http://target.georiot.com/Proxy.ashx?TSID=5093&amp;GR_URL=http%3A%2F%2Fwww.amazon.com%2FBreadboard-Power-Supply-Stick-3-3V%2Fdp%2FB0068QIPRU%2Fref%3Dsr_1_9%3Fie%3DUTF8%26qid%3D1425380616%26sr%3D8-9%26keywords%3Dbreadboard%2Bpower">Breadboard 3.3V power supply</a></li>
+<li><a href="http://target.georiot.com/Proxy.ashx?TSID=5093&amp;GR_URL=http%3A%2F%2Fwww.amazon.com%2FZPS-Ft232rl-Serial-Adapter-Arduino%2Fdp%2FB00IJXZQ7C%2Fref%3Dsr_1_2%3Fie%3DUTF8%26qid%3D1425380584%26sr%3D8-2%26keywords%3Dftdi">3.3V FTDI USB module</a></li>
+<li><a href="http://target.georiot.com/Proxy.ashx?TSID=5093&amp;GR_URL=http%3A%2F%2Fwww.amazon.com%2FDigital-Humidity-Temperature-Sensor-Arudino%2Fdp%2FB007YE0SB6%2Fref%3Dsr_1_1%3Fie%3DUTF8%26qid%3D1428152926%26sr%3D8-1%26keywords%3Ddht11">DHT11 sensor</a></li>
+<li><a href="http://target.georiot.com/Proxy.ashx?TSID=5093&amp;GR_URL=http%3A%2F%2Fwww.amazon.com%2FSolderless-BreadBoard-tie-points-power-rails%2Fdp%2FB005GYAIES%2Fref%3Dsr_1_3%3Fie%3DUTF8%26qid%3D1425380233%26sr%3D8-3%26keywords%3Dbreadboard">Breadboard</a></li>
+<li><a href="http://target.georiot.com/Proxy.ashx?TSID=5093&amp;GR_URL=http%3A%2F%2Fwww.amazon.com%2FWosang-Solderless-Flexible-Breadboard-Jumper%2Fdp%2FB005TZJ0AM%2Fref%3Dsr_1_1%3Fie%3DUTF8%26qid%3D1425380559%26sr%3D8-1%26keywords%3Djumper%2Bwires">Jumper wires</a></li>
+</ul>
+<p>On the software side, I will let you see my guide on how to set up the ESP8266 for a&nbsp;first use:</p>
+<p><a href="https://www.openhomeautomation.net/getting-started-esp8266/">https://www.openhomeautomation.net/getting-started-esp8266/</a></p>
+<p>At the end, you will need to have an ESP8266 chip&nbsp;ready to be used with the ESP8266 Arduino IDE.</p>
+<h3>Hardware Configuration</h3>
+<p>Again, for most of the hardware configuration I will redirect you to the article I wrote on setting up your ESP8266 chip:</p>
+<p><a href="https://www.openhomeautomation.net/getting-started-esp8266/">https://www.openhomeautomation.net/getting-started-esp8266/</a></p>
+<p>Once this is done, simply put the DHT11 sensor&nbsp;on the 
+breadboard. Then, connect the left pin to VCC (red power rail), the 
+right pin to GND (blue power rail), and the pin next to VCC&nbsp;to the 
+GPIO5 pin on your ESP8266 chip. This is the final result, not showing 
+the USB-to-Serial FTDI cables:</p>
+<p><a style="float: none; text-align: center; margin: 0px; padding: 0px;" class="lightbox-added aligncenter" href="https://www.openhomeautomation.net/wp-content/uploads/2015/04/hardware-dht.jpg"><img class="aligncenter size-full wp-image-2994" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/hardware-dht.jpg" alt="hardware-dht" srcset="https://www.openhomeautomation.net/wp-content/uploads/2015/04/hardware-dht-300x169.jpg 300w, https://www.openhomeautomation.net/wp-content/uploads/2015/04/hardware-dht-1030x579.jpg 1030w, https://www.openhomeautomation.net/wp-content/uploads/2015/04/hardware-dht-705x397.jpg 705w, https://www.openhomeautomation.net/wp-content/uploads/2015/04/hardware-dht-450x253.jpg 450w, https://www.openhomeautomation.net/wp-content/uploads/2015/04/hardware-dht.jpg 1280w" sizes="(max-width: 1280px) 100vw, 1280px" height="720" width="1280"><span style="left: -5px; top: 0px; overflow: hidden; display: block; height: 489px; width: 843px;" class="image-overlay overlay-type-image"><span class="image-overlay-inside"></span></span></a></p>
+<h3>Testing the Sensor</h3>
+<p>We are now going to test the sensor. Again, remember that we are 
+using the modified version of the Arduino IDE, so we can&nbsp;code just 
+like we would do using an Arduino board. Here, we will simply print the 
+value of the temperature inside the&nbsp;Serial monitor of the Arduino 
+IDE.</p>
+<p>This is the complete code for this part:</p>
+<pre style="display: none;" class="EnlighterJSRAW" data-enlighter-language="null">// Libraries
+#include "DHT.h"
+
+// Pin
+#define DHTPIN 5
+
+// Use DHT11 sensor
+#define DHTTYPE DHT11
+
+// Initialize DHT sensor
+DHT dht(DHTPIN, DHTTYPE, 15);
+
+void setup() {
+
+ // Start Serial 
+ Serial.begin(115200); 
+ 
+ // Init DHT 
+ dht.begin();
+}
+
+void loop() {
+
+ // Reading temperature and humidity
+ float h = dht.readHumidity();
+ // Read temperature as Celsius
+ float t = dht.readTemperature();
+
+ // Display data
+ Serial.print("Humidity: "); 
+ Serial.print(h);
+ Serial.print(" %\t");
+ Serial.print("Temperature: "); 
+ Serial.print(t);
+ Serial.println(" *C ");
+ 
+ // Wait a few seconds between measurements.
+ delay(2000);
+
+}
+</pre><div class="EnlighterJSWrapper gitEnlighterJSWrapper"><ol class="hoverEnabled gitEnlighterJS EnlighterJS"><li class=" odd"><span class="co1">// Libraries</span><span class=""></span></li><li class=" even"><span class=""></span><span class="kw2">#include "DHT.h"</span><span class=""></span></li><li class=" odd"><span class=""></span><span class="co1"></span></li><li class=" even"><span class="co1">// Pin</span><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw2">#define DHTPIN 5</span><span class=""></span></li><li class=" even"><span class=""></span><span class="co1"></span></li><li class=" odd"><span class="co1">// Use DHT11 sensor</span><span class=""></span></li><li class=" even"><span class=""></span><span class="kw2">#define DHTTYPE DHT11</span><span class=""></span></li><li class=" odd"><span class=""></span><span class="co1"></span></li><li class=" even"><span class="co1">// Initialize DHT sensor</span><span class=""></span></li><li class=" odd"><span class="">DHT </span><span class="de1">dht</span><span class="br0">(</span><span class="">DHTPIN, DHTTYPE, </span><span class="nu0">15</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class=""></span><span class="kw1">void</span><span class=""> </span><span class="de1">setup</span><span class="br0">(</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class=""></span><span class="co1"> // Start Serial </span><span class=""></span></li><li class=" even"><span class=""> Serial.</span><span class="me0">begin</span><span class="br0">(</span><span class="nu0">115200</span><span class="br0">)</span><span class="">; </span></li><li class=" odd"><span class=""> </span></li><li class=" even"><span class=""></span><span class="co1"> // Init DHT </span><span class=""></span></li><li class=" odd"><span class=""> dht.</span><span class="me0">begin</span><span class="br0">(</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span><span class="br0">}</span><span class=""></span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class=""></span><span class="kw1">void</span><span class=""> </span><span class="de1">loop</span><span class="br0">(</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class=""></span><span class="co1"> // Reading temperature and humidity</span><span class=""></span></li><li class=" odd"><span class=""> </span><span class="kw1">float</span><span class=""> h = dht.</span><span class="me0">readHumidity</span><span class="br0">(</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span><span class="co1"> // Read temperature as Celsius</span><span class=""></span></li><li class=" odd"><span class=""> </span><span class="kw1">float</span><span class=""> t = dht.</span><span class="me0">readTemperature</span><span class="br0">(</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span></li><li class=" odd"><span class=""></span><span class="co1"> // Display data</span><span class=""></span></li><li class=" even"><span class=""> Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">"Humidity: "</span><span class="br0">)</span><span class="">; </span></li><li class=" odd"><span class=""> Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="">h</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""> Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">" %\t"</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""> Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="st1">"Temperature: "</span><span class="br0">)</span><span class="">; </span></li><li class=" even"><span class=""> Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="">t</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""> Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="st1">" *C "</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""> </span></li><li class=" odd"><span class=""></span><span class="co1"> // Wait a few seconds between measurements.</span><span class=""></span></li><li class=" even"><span class=""> </span><span class="de1">delay</span><span class="br0">(</span><span class="nu0">2000</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class=""></span></li><li class=" even"><span class=""></span><span class="br0">}</span></li></ol><pre style="display: none;">// Libraries
+#include "DHT.h"
+
+// Pin
+#define DHTPIN 5
+
+// Use DHT11 sensor
+#define DHTTYPE DHT11
+
+// Initialize DHT sensor
+DHT dht(DHTPIN, DHTTYPE, 15);
+
+void setup() {
+
+ // Start Serial 
+ Serial.begin(115200); 
+ 
+ // Init DHT 
+ dht.begin();
+}
+
+void loop() {
+
+ // Reading temperature and humidity
+ float h = dht.readHumidity();
+ // Read temperature as Celsius
+ float t = dht.readTemperature();
+
+ // Display data
+ Serial.print("Humidity: "); 
+ Serial.print(h);
+ Serial.print(" %\t");
+ Serial.print("Temperature: "); 
+ Serial.print(t);
+ Serial.println(" *C ");
+ 
+ // Wait a few seconds between measurements.
+ delay(2000);
+
+}</pre><div class="EnlighterJSToolbar"><a title="EnlighterJS Syntax Highlighter" class="EnlighterJSInfoButton"></a><a title="Toggle RAW Code" class="EnlighterJSRawButton"></a><a title="Open Code in new Window" class="EnlighterJSWindowButton"></a><span class="clear"></span></div></div>
+<p>Let’s see the details of the code. You can see that all the 
+measurement part&nbsp;is contained inside the loop()&nbsp;unction, which
+ makes the code inside it repeat every 2 seconds.</p>
+<p>Then, we read data from the DHT11 sensor,&nbsp;print the value of the temperature &amp; humidity on the Serial port.</p>
+<p>Note that the complete code can also be found inside the GitHub repository of the project:</p>
+<p><a href="https://github.com/openhomeautomation/esp8266-cloud">https://github.com/openhomeautomation/esp8266-cloud</a></p>
+<p>You can now paste this code in the Arduino IDE, and upload it to your
+ board. Then, open the Serial monitor.&nbsp;You should immediately see 
+that the temperature &amp; humidity readings inside the Serial monitor. 
+My sensor was reading around 24 degrees celsius when I tested it, which 
+is a realistic value.</p>
+<h3>Logging Data to Dweet.io</h3>
+<p>We are now going to see how to log these measurements&nbsp;in the 
+cloud. This will be really easy to do as our chip is already connected 
+to the web. We will once more use the Dweet.io cloud service&nbsp;that I
+ used in several articles of this website:</p>
+<p><a href="http://dweet.io/">http://dweet.io/</a></p>
+<p>As the code for this part is very long, we will only see the 
+important parts here. You can of course get all the code from the GitHub
+ repository for this project.&nbsp;Again all the measurements are done 
+inside the loop()&nbsp;function of the sketch, which&nbsp;makes the code
+ repeat every 10 seconds, using a delay() function.</p>
+<p>Inside this loop, we connect to the Dweet.io server with:</p>
+<pre style="display: none;" class="EnlighterJSRAW" data-enlighter-language="null">WiFiClient client;
+const int httpPort = 80;
+if (!client.connect(host, httpPort)) {
+  Serial.println("connection failed");
+  return;
+}</pre><div class="EnlighterJSWrapper gitEnlighterJSWrapper"><ol class="hoverEnabled gitEnlighterJS EnlighterJS"><li class=" odd"><span class="">WiFiClient client;</span></li><li class=" even"><span class=""></span><span class="kw1">const</span><span class=""> </span><span class="kw1">int</span><span class=""> httpPort = </span><span class="nu0">80</span><span class="">;</span></li><li class=" odd"><span class=""></span><span class="kw1">if</span><span class=""> </span><span class="br0">(</span><span class="">!client.</span><span class="me0">connect</span><span class="br0">(</span><span class="">host, httpPort</span><span class="br0">)</span><span class="br0">)</span><span class=""> </span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class="">  Serial.</span><span class="me0">println</span><span class="br0">(</span><span class="st1">"connection failed"</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">  </span><span class="kw1">return</span><span class="">;</span></li><li class=" even"><span class=""></span><span class="br0">}</span></li></ol><pre style="display: none;">WiFiClient client;
+const int httpPort = 80;
+if (!client.connect(host, httpPort)) {
+  Serial.println("connection failed");
+  return;
+}</pre><div class="EnlighterJSToolbar"><a title="EnlighterJS Syntax Highlighter" class="EnlighterJSInfoButton"></a><a title="Toggle RAW Code" class="EnlighterJSRawButton"></a><a title="Open Code in new Window" class="EnlighterJSWindowButton"></a><span class="clear"></span></div></div>
+<p>Then, we read the data from the sensor with:</p>
+<pre style="display: none;" class="EnlighterJSRAW" data-enlighter-language="null">int h = dht.readHumidity();
+int t = dht.readTemperature();</pre><div class="EnlighterJSWrapper gitEnlighterJSWrapper"><ol class="hoverEnabled gitEnlighterJS EnlighterJS"><li class=" odd"><span class="kw1">int</span><span class=""> h = dht.</span><span class="me0">readHumidity</span><span class="br0">(</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span><span class="kw1">int</span><span class=""> t = dht.</span><span class="me0">readTemperature</span><span class="br0">(</span><span class="br0">)</span><span class="">;</span></li></ol><pre style="display: none;">int h = dht.readHumidity();
+int t = dht.readTemperature();</pre><div class="EnlighterJSToolbar"><a title="EnlighterJS Syntax Highlighter" class="EnlighterJSInfoButton"></a><a title="Toggle RAW Code" class="EnlighterJSRawButton"></a><a title="Open Code in new Window" class="EnlighterJSWindowButton"></a><span class="clear"></span></div></div>
+<p>After that, we send data&nbsp;to the Dweet.io server with:</p>
+<pre style="display: none;" class="EnlighterJSRAW" data-enlighter-language="null">client.print(String("GET /dweet/for/myesp8266?temperature=") + String(t) + "&amp;humidity=" + String(h) + " HTTP/1.1\r\n" +
+  "Host: " + host + "\r\n" + 
+  "Connection: close\r\n\r\n");</pre><div class="EnlighterJSWrapper gitEnlighterJSWrapper"><ol class="hoverEnabled gitEnlighterJS EnlighterJS"><li class=" odd"><span class="">client.</span><span class="me0">print</span><span class="br0">(</span><span class="de1">String</span><span class="br0">(</span><span class="st1">"GET /dweet/for/myesp8266?temperature="</span><span class="br0">)</span><span class=""> + </span><span class="de1">String</span><span class="br0">(</span><span class="">t</span><span class="br0">)</span><span class=""> + </span><span class="st1">"&amp;humidity="</span><span class=""> + </span><span class="de1">String</span><span class="br0">(</span><span class="">h</span><span class="br0">)</span><span class=""> + </span><span class="st1">" HTTP/1.1\r\n"</span><span class=""> +</span></li><li class=" even"><span class="">  </span><span class="st1">"Host: "</span><span class=""> + host + </span><span class="st1">"\r\n"</span><span class=""> + </span></li><li class=" odd"><span class="">  </span><span class="st1">"Connection: close\r\n\r\n"</span><span class="br0">)</span><span class="">;</span></li></ol><pre style="display: none;">client.print(String("GET /dweet/for/myesp8266?temperature=") + String(t) + "&amp;humidity=" + String(h) + " HTTP/1.1\r\n" +
+  "Host: " + host + "\r\n" + 
+  "Connection: close\r\n\r\n");</pre><div class="EnlighterJSToolbar"><a title="EnlighterJS Syntax Highlighter" class="EnlighterJSInfoButton"></a><a title="Toggle RAW Code" class="EnlighterJSRawButton"></a><a title="Open Code in new Window" class="EnlighterJSWindowButton"></a><span class="clear"></span></div></div>
+<p>You might want to replace the ‘myesp8266’ here, which is your device 
+name on Dweet.io. Use a complicated name (just like a password) to make 
+sure you are creating an unique device on Dweet.io.</p>
+<p>We also print any received data on the serial port with:</p>
+<pre style="display: none;" class="EnlighterJSRAW" data-enlighter-language="null">while(client.available()){
+  String line = client.readStringUntil('\r');
+  Serial.print(line);
+}</pre><div class="EnlighterJSWrapper gitEnlighterJSWrapper"><ol class="hoverEnabled gitEnlighterJS EnlighterJS"><li class=" odd"><span class="kw1">while</span><span class="br0">(</span><span class="">client.</span><span class="me0">available</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">{</span><span class=""></span></li><li class=" even"><span class="">  String line = client.</span><span class="me0">readStringUntil</span><span class="br0">(</span><span class="st0">'\r'</span><span class="br0">)</span><span class="">;</span></li><li class=" odd"><span class="">  Serial.</span><span class="me0">print</span><span class="br0">(</span><span class="">line</span><span class="br0">)</span><span class="">;</span></li><li class=" even"><span class=""></span><span class="br0">}</span></li></ol><pre style="display: none;">while(client.available()){
+  String line = client.readStringUntil('\r');
+  Serial.print(line);
+}</pre><div class="EnlighterJSToolbar"><a title="EnlighterJS Syntax Highlighter" class="EnlighterJSInfoButton"></a><a title="Toggle RAW Code" class="EnlighterJSRawButton"></a><a title="Open Code in new Window" class="EnlighterJSWindowButton"></a><span class="clear"></span></div></div>
+<p>Note that the complete code can also be found inside the GitHub repository of the project:</p>
+<p><a href="https://github.com/openhomeautomation/esp8266-cloud">https://github.com/openhomeautomation/esp8266-cloud</a></p>
+<p>Note that you also need to modify the code to insert your own WiFi 
+network name &amp; password. You can now upload the code to the ESP8266 
+board, and open the Serial monitor. You should see that every&nbsp;10 
+seconds, the request is sent to the Dweet.io server, and you get the 
+answer back:</p>
+<p><em>HTTP/1.1 200 OK</em><br>
+<em>Access-Control-Allow-Origin: *</em><br>
+<em>Content-Type: application/json</em><br>
+<em>Content-Length: 147</em><br>
+<em>Date: Mon, 16 Mar 2015 10:03:37 GMT</em><br>
+<em>Connection: keep-alive</em></p>
+<p><em>{“this”:”succeeded”,”by”:”dweeting”,”the”:”dweet”,”with”:{“thing”:”myesp8266″,”created”:”2015-03-16T10:03:37.053Z”,”content”:{“temperature”:24,&nbsp;<em>“humidity”:39</em>}}}</em></p>
+<p>If you can see the ‘succeeded’ message, congratulations, you just logged data in the cloud with your ESP8266 chip!</p>
+<h3>Display&nbsp;Data Using Freeboard.io</h3>
+<p>Now, we would like to actually display the recorded data inside a 
+dashboard that can be accessed from anywhere in the world. For that, we 
+are going to use a service that I love to use along with Dweet.io: 
+Freeboard. You can create an account there by going to:</p>
+<p><a href="https://www.freeboard.io/">https://www.freeboard.io/</a></p>
+<p>Then, also create a new dashboard, and inside this dashboard, create a
+ new datasource. Link this datasource to your Dweet.io ‘thing’ that you 
+defined in the ESP8266 code:</p>
+<p><a style="float: none; text-align: center; margin: 0px; padding: 0px;" class="lightbox-added aligncenter" href="https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.09.46.png"><img class="aligncenter size-large wp-image-2913" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/Screen-Shot-2015-03-16-at-10_003.png" alt="Screen Shot 2015-03-16 at 10.09.46" srcset="https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.09.46-300x127.png 300w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.09.46-1030x435.png 1030w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.09.46-1500x633.png 1500w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.09.46-705x298.png 705w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.09.46-450x190.png 450w" sizes="(max-width: 1030px) 100vw, 1030px" height="435" width="1030"><span class="image-overlay overlay-type-image"><span class="image-overlay-inside"></span></span></a></p>
+<p>Then, create a new ‘Gauge’ widget, that we will use to display the 
+temperature. Give it a name, and link it to the temperature field of our
+ datasource:</p>
+<p><a style="float: none; text-align: center; margin: 0px; padding: 0px;" class="lightbox-added aligncenter" href="https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.26.png"><img class="aligncenter size-large wp-image-2914" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/Screen-Shot-2015-03-16-at-10_002.png" alt="Screen Shot 2015-03-16 at 10.20.26" srcset="https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.26-300x134.png 300w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.26-1030x459.png 1030w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.26-1500x669.png 1500w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.26-705x315.png 705w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.26-450x201.png 450w" sizes="(max-width: 1030px) 100vw, 1030px" height="459" width="1030"><span class="image-overlay overlay-type-image"><span class="image-overlay-inside"></span></span></a></p>
+<p>This is the final result:</p>
+<p><a style="float: none; text-align: center; margin: 0px; padding: 0px;" class="lightbox-added aligncenter" href="https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.31.png"><img class="aligncenter size-large wp-image-2915" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/Screen-Shot-2015-03-16-at-10.png" alt="Screen Shot 2015-03-16 at 10.20.31" srcset="https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.31-300x84.png 300w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.31-1030x289.png 1030w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.31-100x28.png 100w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.31-1500x420.png 1500w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.31-705x197.png 705w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-16-at-10.20.31-450x126.png 450w" sizes="(max-width: 1030px) 100vw, 1030px" height="289" width="1030"><span class="image-overlay overlay-type-image"><span class="image-overlay-inside"></span></span></a></p>
+<p>You should see that the temperature data coming from the ESP8266 is 
+logged every 10 seconds and is immediately displayed inside the 
+Freeboard.io panel. Congratulations, you should built a very small &amp;
+ cheap temperature sensor that logs data in the cloud! You can then do 
+the same with the humidity measurements &amp; also display them on this 
+dashboard.</p>
+<h3>How to Go Further</h3>
+<p>Let’s summarise what we did in this project. We built a simple &amp; 
+cheap WiFi temperature sensor based on the ESP8266 chip. We configured 
+it to automatically log data on the Dweet.io service, and we displayed 
+these measurements inside a dashboard.</p>
+<p>There are many ways to improve this project. You can simply add more 
+sensors to the project, and display these measurements as well inside 
+the Freeboard.io dashboard. You can also for example completely change 
+the project, by connecting a motion sensor to the ESP8266 board. You can
+ then configure this sensor to automatically send you an alert when 
+motion is detected, for example via email or using Twitter. The 
+possibilities are endless!</p>
+<p>What about you, did you also built cloud-connected projects using the ESP8266 chip? Please share in the comments!</p>
+</div><footer class="entry-footer"><div class="av-share-box"><h5 class="av-share-link-description">Share this entry</h5><ul class="av-share-box-list noLightbox"><li class="av-share-link av-social-link-facebook"><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/&amp;t=Cloud%20Temperature%20Logger%20with%20the%20ESP8266" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on Facebook"><span class="avia_hidden_link_text">Share on Facebook</span></a></li><li class="av-share-link av-social-link-twitter"><a target="_blank" href="https://twitter.com/share?text=Cloud%20Temperature%20Logger%20with%20the%20ESP8266&amp;url=http://wp.me/p50v0S-KX" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on Twitter"><span class="avia_hidden_link_text">Share on Twitter</span></a></li><li class="av-share-link av-social-link-gplus"><a target="_blank" href="https://plus.google.com/share?url=http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on Google+"><span class="avia_hidden_link_text">Share on Google+</span></a></li><li class="av-share-link av-social-link-pinterest"><a target="_blank" href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.openhomeautomation.net%2Fcloud-temperature-logger-esp8266%2F&amp;description=Cloud%20Temperature%20Logger%20with%20the%20ESP8266&amp;media=https%3A%2F%2Fwww.openhomeautomation.net%2Fwp-content%2Fuploads%2F2015%2F04%2Ffeatured-705x270.jpg" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on Pinterest"><span class="avia_hidden_link_text">Share on Pinterest</span></a></li><li class="av-share-link av-social-link-linkedin"><a target="_blank" href="http://linkedin.com/shareArticle?mini=true&amp;title=Cloud%20Temperature%20Logger%20with%20the%20ESP8266&amp;url=http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on Linkedin"><span class="avia_hidden_link_text">Share on Linkedin</span></a></li></ul></div></footer><div class="post_delimiter"></div></div><div class="post_author_timeline"></div></article><div class="single-big"></div>
+<div id="disqus_thread"><iframe verticalscrolling="no" horizontalscrolling="no" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/a.htm" style="width: 1px ! important; min-width: 100% ! important; border: medium none ! important; overflow: hidden ! important; height: 3099px ! important;" title="Disqus" tabindex="0" scrolling="no" allowtransparency="true" name="dsq-app2" id="dsq-app2" frameborder="0" width="100%"></iframe><iframe style="width: 883px ! important; border: medium none ! important; overflow: hidden ! important; top: 0px ! important; min-width: 883px ! important; max-width: 883px ! important; position: fixed ! important; z-index: 2147483646 ! important; height: 29px ! important; min-height: 29px ! important; max-height: 29px ! important; display: none ! important;" title="Disqus" tabindex="0" scrolling="no" allowtransparency="true" name="indicator-north" id="indicator-north" frameborder="0"></iframe><iframe style="width: 883px ! important; border: medium none ! important; overflow: hidden ! important; bottom: 0px ! important; min-width: 883px ! important; max-width: 883px ! important; position: fixed ! important; z-index: 2147483646 ! important; height: 29px ! important; min-height: 29px ! important; max-height: 29px ! important; display: none ! important;" title="Disqus" tabindex="0" scrolling="no" allowtransparency="true" name="indicator-south" id="indicator-south" frameborder="0"></iframe></div>
+
+<script type="text/javascript">
+var disqus_url = 'http://www.openhomeautomation.net/cloud-temperature-logger-esp8266/';
+var disqus_identifier = '2911 http://www.openhomeautomation.net/?p=2911';
+var disqus_container_id = 'disqus_thread';
+var disqus_shortname = 'openhomeautomation';
+var disqus_title = "Cloud Temperature Logger with the ESP8266";
+var disqus_config_custom = window.disqus_config;
+var disqus_config = function () {
+    /*
+    All currently supported events:
+    onReady: fires when everything is ready,
+    onNewComment: fires when a new comment is posted,
+    onIdentify: fires when user is authenticated
+    */
+    
+    
+    this.language = '';
+        this.callbacks.onReady.push(function () {
+
+        // sync comments in the background so we don't block the page
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = '?cf_action=sync_comments&post_id=2911';
+
+        var firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+    });
+    
+    if (disqus_config_custom) {
+        disqus_config_custom.call(this);
+    }
+};
+
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+				<!--end content-->
+				</main>
+
+				<aside class="sidebar sidebar_right  alpha units" role="complementary" itemscope="itemscope" itemtype="https://schema.org/WPSideBar"><div class="inner_sidebar extralight-border"><section id="text-3" class="widget clearfix widget_text">			<div class="textwidget"><a style="position: relative; overflow: hidden;" href="http://openhomeautomation.net/home-automation-arduino" id="rotator_link"><img id="rotator" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/sidebar_arduino_4.jpg"><span class="image-overlay overlay-type-extern"><span class="image-overlay-inside"></span></span></a>
+
+<script>
+
+var random = Math.floor(Math.random() * 4);
+console.log(random);
+
+if (random == 0) {
+jQuery('#rotator').attr('src', "https://www.openhomeautomation.net/wp-content/uploads/2015/08/sidebar_arduino_4.jpg");
+
+jQuery('#rotator_link').attr('href', "http://openhomeautomation.net/home-automation-arduino");
+}
+if (random == 1) {
+jQuery('#rotator').attr('src', "https://www.openhomeautomation.net/wp-content/uploads/2015/08/sidebar_esp_4.jpg");
+
+jQuery('#rotator_link').attr('href', "https://www.openhomeautomation.net/home-automation-esp8266/");
+}
+
+if (random == 2) {
+jQuery('#rotator').attr('src', "https://www.openhomeautomation.net/wp-content/uploads/2015/08/sidebar_rpi_4.jpg");
+
+jQuery('#rotator_link').attr('href', "http://www.openhomeautomation.net/home-automation-raspberry-pi/");
+}
+
+if (random == 3) {
+jQuery('#rotator').attr('src', "https://www.openhomeautomation.net/wp-content/uploads/2015/09/sidebar_promo.jpg");
+
+jQuery('#rotator_link').attr('href', "https://www.openhomeautomation.net/internet-of-things-photon/");
+}
+
+</script></div>
+		<span class="seperator extralight-border"></span></section><section id="text-10" class="widget clearfix widget_text">			<div class="textwidget"><div style="text-align: center; padding-left: 25px; padding-right: 25px; border: 2px solid black; background-color: #474747; color: white;">   
+
+<p>Do you like what you are reading on this website? If yes, join over 
+2,000 people who receive exclusive information about open-source home 
+automation &amp; the IoT. You will also receive a PDF with my 5 best 
+tips on building home automation systems. Simply enter your email below!</p>
+<div style="margin-top: 25px;">
+<form action="http://email.schwartzindustries.com/subscribe" method="POST" accept-charset="utf-8">
+	<input style="height: 44px; font-size: 20px; float:left; vertical-align: middle;" placeholder="Your email ..." name="email" id="email" type="text">
+	<br>
+	<input name="list" value="nJoGjjaZpdCi8oJ38" type="hidden">
+<input name="interests" value="Home Automation" type="hidden">
+<input name="origin" value="blog" type="hidden">
+	<input class="avia-button avia-size-medium" name="submit" id="submit" value="Subscribe" type="submit">
+</form>
+
+</div></div></div>
+		<span class="seperator extralight-border"></span></section><section id="text-11" class="widget clearfix widget_text">			<div class="textwidget"><script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/link.js"></script><a style="position: relative; overflow: hidden;" href="http://www.avantlink.com/click.php?tt=ml&amp;ti=307901&amp;pw=157393"><img src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/image.gif" style="border: 0px;" alt="" height="250" width="300"><span class="image-overlay overlay-type-extern"><span class="image-overlay-inside"></span></span></a></div>
+		<span class="seperator extralight-border"></span></section><section id="facebook-likebox-2" class="widget clearfix widget_facebook_likebox">		<div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/xd_arbiter.htm" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+		<div fb-iframe-plugin-query="app_id=249643311490&amp;container_width=276&amp;height=250&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FOpenHomeAutomation&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;width=340" fb-xfbml-state="rendered" class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/OpenHomeAutomation" data-width="340" data-height="250" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><span style="vertical-align: bottom; width: 276px; height: 214px;"><iframe class="" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/page.htm" style="border: medium none; visibility: visible; width: 276px; height: 214px;" title="fb:page Facebook Social Plugin" scrolling="no" allowfullscreen="true" allowtransparency="true" name="f185cbdc2a4a25e" frameborder="0" height="250px" width="340px"></iframe></span></div>
+		<script>(function(d, s, id) { var js, fjs = 
+d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = 
+d.createElement(s); js.id = id; js.src = 
+'//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=249643311490&version=v2.3';
+ fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 
+'facebook-jssdk'));</script>
+		<span class="seperator extralight-border"></span></section>		<section id="recent-posts-2" class="widget clearfix widget_recent_entries">		<h3 class="widgettitle">Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://www.openhomeautomation.net/control-relay-anywhere-esp8266/">Control a Relay From Anywhere Using the ESP8266</a>
+						</li>
+					<li>
+				<a href="http://www.openhomeautomation.net/basic-video-surveillance-with-the-raspberry-pi/">Basic Video Surveillance with the Raspberry Pi</a>
+						</li>
+					<li>
+				<a href="http://www.openhomeautomation.net/connect-esp8266-raspberry-pi/">Connect the ESP8266 WiFi Chip to your Raspberry Pi</a>
+						</li>
+					<li>
+				<a href="http://www.openhomeautomation.net/insecure-iot/">Are We Creating An Insecure Internet of Things?</a>
+						</li>
+					<li>
+				<a href="http://www.openhomeautomation.net/cloud-data-logger-particle-photon/">Make a Cloud Data Logger With the Particle Photon</a>
+						</li>
+				</ul>
+		<span class="seperator extralight-border"></span></section>		<section id="search-2" class="widget clearfix widget_search">
+
+<form action="http://www.openhomeautomation.net/" id="searchform" method="get" class="">
+	<div>
+		<input value="" id="searchsubmit" class="button avia-font-entypo-fontello" type="submit">
+		<input id="s" name="s" placeholder="Search" type="text">
+			</div>
+</form><span class="seperator extralight-border"></span></section></div></aside>
+
+			</div><!--end container-->
+
+		</div><!-- close default .container_wrap element -->
+
+
+						<div class="container_wrap footer_color" id="footer">
+
+					<div class="container">
+
+						<div class="flex_column   first el_before_"><section id="nav_menu-2" class="widget clearfix widget_nav_menu"><h3 class="widgettitle">Legal</h3><div class="menu-legal-container"><ul id="menu-legal" class="menu"><li id="menu-item-3320" class="menu-item menu-item-type-post_type menu-item-object-legull_terms menu-item-3320"><a href="http://www.openhomeautomation.net/legal/terms-of-service/">Terms of Service</a></li>
+<li id="menu-item-3321" class="menu-item menu-item-type-post_type menu-item-object-legull_terms menu-item-3321"><a href="http://www.openhomeautomation.net/legal/privacy-policy/">Privacy Policy</a></li>
+</ul></div><span class="seperator extralight-border"></span></section></div>
+
+					</div>
+
+
+				<!-- ####### END FOOTER CONTAINER ####### -->
+				</div>
+
+	
+
+
+			
+
+			
+				<footer class="container_wrap socket_color" id="socket" role="contentinfo" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+                    <div class="container">
+
+                        <span class="copyright">© 2015 Open Home Automation - <a href="http://www.kriesi.at/">Enfold Theme by Kriesi</a></span>
+
+                        
+                    </div>
+
+	            <!-- ####### END SOCKET CONTAINER ####### -->
+				</footer>
+
+
+					<!-- end main -->
+		</div>
+		
+		<a class="avia-post-nav avia-post-prev with-image" href="http://www.openhomeautomation.net/control-a-lamp-remotely-using-the-esp8266-wifi-chip/">    <span class="label iconfont" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"></span>    <span class="entry-info-wrap">        <span class="entry-info">            <span class="entry-title">Control a Lamp Remotely Using the ESP8266 WiFi Chip</span>            <span class="entry-image"><img src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/featured3-80x80.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="featured" srcset="https://www.openhomeautomation.net/wp-content/uploads/2015/03/featured3-80x80.jpg 80w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/featured3-36x36.jpg 36w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/featured3-180x180.jpg 180w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/featured3-120x120.jpg 120w, https://www.openhomeautomation.net/wp-content/uploads/2015/03/featured3-450x450.jpg 450w" sizes="(max-width: 80px) 100vw, 80px" height="80" width="80"></span>        </span>    </span></a><a class="avia-post-nav avia-post-next with-image" href="http://www.openhomeautomation.net/control-lamp-wildfire/">    <span class="label iconfont" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"></span>    <span class="entry-info-wrap">        <span class="entry-info">            <span class="entry-image"><img src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/featured-80x80.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="featured" srcset="https://www.openhomeautomation.net/wp-content/uploads/2015/05/featured-80x80.jpg 80w, https://www.openhomeautomation.net/wp-content/uploads/2015/05/featured-36x36.jpg 36w, https://www.openhomeautomation.net/wp-content/uploads/2015/05/featured-180x180.jpg 180w, https://www.openhomeautomation.net/wp-content/uploads/2015/05/featured-120x120.jpg 120w, https://www.openhomeautomation.net/wp-content/uploads/2015/05/featured-450x450.jpg 450w" sizes="(max-width: 80px) 100vw, 80px" height="80" width="80"></span>            <span class="entry-title">Control a Lamp From Your Smartphone Using the WildFire Board</span>        </span>    </span></a><!-- end wrap_all --></div>
+
+        <script type="text/javascript">
+        // <![CDATA[
+        var disqus_shortname = 'openhomeautomation';
+        (function () {
+            var nodes = document.getElementsByTagName('span');
+            for (var i = 0, url; i < nodes.length; i++) {
+                if (nodes[i].className.indexOf('dsq-postid') != -1) {
+                    nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('data-dsqidentifier'));
+                    url = nodes[i].parentNode.href.split('#', 1);
+                    if (url.length == 1) { url = url[0]; }
+                    else { url = url[1]; }
+                    nodes[i].parentNode.href = url + '#disqus_thread';
+                }
+            }
+            var s = document.createElement('script'); 
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        // ]]>
+        </script>
+        	<div style="display:none">
+	</div>
+
+ <script type="text/javascript">
+ /* <![CDATA[ */  
+var avia_framework_globals = avia_framework_globals || {};
+    avia_framework_globals.frameworkUrl = 'https://www.openhomeautomation.net/wp-content/themes/enfold/framework/';
+    avia_framework_globals.installedAt = 'https://www.openhomeautomation.net/wp-content/themes/enfold/';
+    avia_framework_globals.ajaxurl = 'https://www.openhomeautomation.net/wp-admin/admin-ajax.php';
+/* ]]> */ 
+</script>
+ 
+ <!-- Inline jetpack_facebook_likebox -->
+<style id="jetpack_facebook_likebox-inline-css" type="text/css">
+.widget_facebook_likebox {
+	overflow: hidden;
+}
+
+</style>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/legull-scripts.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/wpgroho.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/avia.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/shortcodes.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/jquery.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var mejsL10n = 
+{"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download
+ File":"Download File","Download Video":"Download 
+Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute 
+Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go 
+Fullscreen":"Go 
+Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
+var
+ _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/mediaelement-and-player.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/wp-mediaelement.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/comment-reply.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/wp-embed.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/core.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/widget.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/tabs.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/user-dashboard.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/general-frontend.js"></script>
+<script type="text/javascript" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/e-201604.js" async="" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.9.1',blog:'74000898',post:'2911',tz:'1',srv:'www.openhomeautomation.net'} ]);
+	_stq.push([ 'clickTrackerInit', '74000898', '2911' ]);
+</script>
+<a class="avia_pop_class" href="#top" title="Scroll to top" id="scroll-top-link" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"><span class="avia_hidden_link_text">Scroll to top</span></a>
+
+<div id="fb-root"></div>
+
+
+<img id="wpstats" src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/g.gif"><div class="gumroad-loading-indicator"><i></i></div><iframe src="Cloud%20Temperature%20Logger%20with%20the%20ESP8266%20-%20Open%20Home%20Automation_files/overlay_page.htm" class="gumroad-overlay-iframe"></iframe></body></html>

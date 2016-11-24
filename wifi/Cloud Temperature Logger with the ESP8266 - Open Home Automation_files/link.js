@@ -1,0 +1,1 @@
+document.write('<a href="http://www.avantlink.com/click.php?tt=ml&ti=307901&pw=157393"><img src="//www.avantlink.com/gbi/12573/307901/130409/157393/image.gif" width="300" height="250" style="border: 0px;" alt="" /></a>');
