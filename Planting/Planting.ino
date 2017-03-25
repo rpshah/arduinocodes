@@ -1,68 +1,102 @@
 int ledPin=13;
-int analogPin=A1;
+int moiPin=A1;
+int motorSwitch=8;
+
+const boolean DEBUG = true;
+boolean isMotorON = false;
 
 void setup()
 {
   Serial.begin(9600);
   pinMode(ledPin,OUTPUT);
-  //  pinMode(ledPin,INPUT);
-  pinMode(analogPin,INPUT);
+  pinMode(moiPin,INPUT);
+  pinMode(motorSwitch,OUTPUT);
+  //make sure motor is turned off initially.
+
+  digitalWrite(motorSwitch,LOW);
+  isMotorON = false;
 }
 
 void loop()
 {
   static int count;
-  int readedValue=analogRead(analogPin);
-  float voltage=float(readedValue*(float(5.0/1023.0)));        //To Count Voltage
-  if(readedValue>750)
-  {
+  float moi = soilMoisture();
+  
+  if(moi<4.0)
+  {    
     count++;
     if(count<6)
     {
-      Serial.print("Thank You!...");
-      Serial.println(readedValue);
-      Serial.print("\tVoltage....");
-      Serial.println(voltage);
+      
+      //if motor is not turned on yet,Turn ON
+      if( !isMotorON ){
+        digitalWrite(motorSwitch,LOW);
+        isMotorON = true;
+      } 
+      digitalWrite(ledPin,HIGH);
+      if(DEBUG){
+        Serial.println("Thank You!...");
+      }
+      delay(1000);
+      digitalWrite(ledPin,LOW);
+      delay(1000);
     }
     else if(count==6)
     {
-      Serial.println("Plant has been Watered...");
+      digitalWrite(ledPin,HIGH);
+      if(DEBUG){
+        Serial.println("Water is stopped now,plant has enough water...");
+      }
+      delay(5000);
+      digitalWrite(ledPin,LOW);
+
+      //turn motor off now
+      if( isMotorON ){
+        digitalWrite(motorSwitch,HIGH);
+        isMotorON = false;
+      }
     }
-    //if(digitalRead(ledPin)==HIGH)
-    //{
-    digitalWrite(ledPin,HIGH);
-    delay(readedValue*10);
-    digitalWrite(ledPin,LOW);
-    delay(readedValue);
-    //}
+    else{
+     //do nothing 
+    }
   }
   else
   {
-    count=0;
-    Serial.println("********************");
-    Serial.print("    FEED ME MORE ...   ");
-    Serial.println(readedValue);
-    Serial.print("\tVoltage....");
-    Serial.println(voltage);
-    //    if(digitalRead(ledPin)==LOW)
-    //{
-    //  delay(readedValue*10);
-    if(readedValue<200)
-    {
-      readedValue=200;
+    //if motor is not turned on yet,Turn ON
+    if( !isMotorON ){
+      digitalWrite(motorSwitch,LOW);
+      isMotorON = true;
     }
-    digitalWrite(ledPin,LOW);
-    delay(readedValue);
+    count=0;
     digitalWrite(ledPin,HIGH);
-    delay(readedValue);
-    //digitalWrite(ledPin,LOW);
-    //delay(readedValue*10);
-    //}
+    delay(int(moi*100));    
+    digitalWrite(ledPin,LOW);
+    delay(int(moi*100));
+    digitalWrite(ledPin,HIGH);
+    delay(int(moi*100));    
+    digitalWrite(ledPin,LOW);
+    delay(int(moi*100));
+    if(DEBUG){
+      Serial.println("********************");
+      Serial.println("    Plant needs water ...   ");  
+    }
   }
-
 }
 
 
+float soilMoisture(){
+  int readedValue=analogRead(moiPin);
+  float voltage=float(readedValue*(float(5.0/1023.0)));        //To Count Voltage
 
+  if(DEBUG){
+      Serial.print("Sensor Reading :\t");
+      Serial.println(readedValue);
+      Serial.print("Voltage :\t");
+      Serial.println(voltage);
+    
+  }
+  
+  return voltage;
+}
 
 
