@@ -40,19 +40,16 @@ BLEPeripheral  blePeripheral;
 void setup() {
   Serial.begin(9600);
   delay(1000);
-  pinMode(13,OUTPUT);
   blePeripheral.setLocalName("Blynk");
   blePeripheral.setDeviceName("Blynk");
   blePeripheral.setAppearance(384);
   Serial.println("ble will start now start");
   Blynk.begin(auth, blePeripheral);
   blePeripheral.begin();
-  digitalWrite(13, HIGH);
   
 
   Serial.println("Waiting for connections...");
 
-  digitalWrite(13,LOW);
 }
 
 void loop() {
