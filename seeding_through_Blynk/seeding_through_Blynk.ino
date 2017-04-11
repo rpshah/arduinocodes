@@ -24,33 +24,30 @@ void setup() {
   Serial.begin(9600);
 
   Serial.println("Setting speed for motor");
-  digitalWrite(ENA, HIGH); // Activer moteur A
-  digitalWrite(ENB, HIGH); // Activer moteur B
+  analogWrite(ENA, 200); // Activer moteur A
+  analogWrite(ENB, 200); // Activer moteur B
 
   Serial.println("Attaching Servo Motor");
+  myservoA.attach(9);  // attaches the servo on pin 9 to the servo object
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   driveForward();
   delay(1000);
-  driveStop();
-  delay(100);
-
+  
   driveBackword();
   delay(1000);
-  driveStop();
-  delay(100);
-
+  
   driveLeft();
   delay(1000);
-  driveStop();
-  delay(100);
-
+  
   driveRight();
   delay(1000);
+  
   driveStop();
-  delay(100);
+  delay(1000);
 
   openServo();
 }
@@ -96,15 +93,20 @@ void driveRight() {
 }
 
 void openServo(){
-  for (int posA = 0; posA <= 90; posA += 1)
+  /**for (int posA = 0; posA <= 360; posA += 1)
     {
       myservoA.write(posA);
       delay(15);
 
     }
-   for (int posA = 90; posA >= 0; posA -= 1)
+    //delay(200);
+   for (int posA = 360; posA >= 0; posA -= 1)
     {
       myservoA.write(posA);
       delay(15);
-    }  
+    }
+   **/
+   myservoA.write(360);
+   delay(1000);
+   myservoA.write(0);  
 }
