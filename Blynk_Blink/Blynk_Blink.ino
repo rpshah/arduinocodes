@@ -33,7 +33,7 @@
 
 // You should get Auth Token in the Blynk App.
 // Go to the Project Settings (nut icon).
-char auth[] = "cac55b604aba49e7b0238f3f588ac8ac";
+char auth[] = "81fb1743948d4dff820bdbc2896d5154";
 
 BLEPeripheral  blePeripheral;
 
