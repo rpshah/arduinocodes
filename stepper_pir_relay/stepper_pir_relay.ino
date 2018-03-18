@@ -11,14 +11,14 @@ Stepper myStepper2(stepsPerRevolution, 6, 7, 8, 9);
 Stepper myStepper3(stepsPerRevolution, 22, 23, 24, 25);
 Stepper myStepper4(stepsPerRevolution, 28, 29, 30, 31);
 Stepper myStepper5(stepsPerRevolution, 34, 35, 36, 37);
-Stepper myStepper6(stepsPerRevolution, 40, 41, 42, 43);
-Stepper myStepper7(stepsPerRevolution, 46, 47, 48, 49);
-Stepper myStepper8(stepsPerRevolution, 50, 51, 52, 53);
+Stepper myStepper6(stepsPerRevolution, 40, 42, 41, 43);
+Stepper myStepper7(stepsPerRevolution, 46, 48, 47, 49);
+Stepper myStepper8(stepsPerRevolution, 50, 52, 51, 53);
 
 
 const int pirPin1 = 10;               // choose the input pin (for PIR sensor)
 const int pirPin2 = 11;
-const int pirPin3 = 12;
+//const int pirPin3 = 12;
 int pirState = LOW;             // we start, assuming no motion detected
 
 const int relayPin = 13;
@@ -42,8 +42,7 @@ void setup() {
 
   pinMode(pirPin1, INPUT);
   pinMode(pirPin2, INPUT);
-  pinMode(pirPin3, INPUT);
-
+  //pinMode(pirPin3, INPUT);
   pinMode(relayPin, OUTPUT);
 
   digitalWrite(relayPin,HIGH);
@@ -52,7 +51,7 @@ void setup() {
 }
 
 void loop() {
-  if(motionDetection()){
+  if(motionDetection() == true){
       Serial.println("Turning Relay ON");
       digitalWrite(relayPin,LOW); //Turn ON relay switch
       rotateMotors();
@@ -98,22 +97,27 @@ boolean motionDetection(){
 
   int val1 = digitalRead(pirPin1);  // read input value
   int val2 = digitalRead(pirPin2);
-  int val3 = digitalRead(pirPin3);
-  if (val1 == HIGH || val2 == HIGH || val3 == HIGH) {            // check if the input is HIGH
+  //int val3 = digitalRead(pirPin3);
+  if (val1 == HIGH || val2 == HIGH) {            // check if the input is HIGH
         
     if (pirState == LOW) {
       Serial.println("Motion detected!");
       pirState = HIGH;
-
+      
+      digitalWrite(pirPin1,LOW);
+      digitalWrite(pirPin2,LOW);
+      //digitalWrite(pirPin3,LOW);
       return true;
     }
+    
+    //Serial.println("trapped");
   } else {
       if (pirState == HIGH){
       Serial.println("Motion ended!");
       pirState = LOW;
     }
   }
-
+  delay(100);
   return false;
   
 }
