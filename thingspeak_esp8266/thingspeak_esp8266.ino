@@ -27,8 +27,8 @@
 #define IP "184.106.153.149"
 
 //*-- Sensor Connectivity Info
-int echopin = 9; // echo pin
-int trigpin = 8; // Trigger pin
+int echopin = 7; // echo pin
+int trigpin = 13; // Trigger pin
 int maximumRange = 50;
 long duration, distance;
 float temperature;
@@ -47,13 +47,14 @@ DallasTemperature sensors(&oneWire);
 // GET /update?key=[THINGSPEAK_KEY]&field1=[data 1]&field2=[data 2]...;
 String GET = "GET /update?key=[ThingSpeak_(Write)API_KEY]";
 bool debugging = true; //to show debug msgs or not
+bool network_cennected = false;
 
 void setup() {
 
   pinMode (trigpin, OUTPUT);
   pinMode (echopin, INPUT );
-  pinMode (4, OUTPUT);
-  pinMode (13, OUTPUT);
+  pinMode (A2), OUTPUT);
+  pinMode (A3, OUTPUT);
   pinMode(switchPin, INPUT); //sets analog 6 as an input pin
 
   Serial.begin( 9600 );
@@ -63,21 +64,24 @@ void setup() {
 
   sendWifi("AT");
   delay(5000);  //wait for 5 sec to bootup esp8266
-  connectWiFi();
+  do{
+    debugPrint("Tryig to connect to wifi...");
+    connectWiFi();
+  }while(!network_cennected);
 }
 
 void loop() {
   readTemp();
   readDistance();
   if (distance <= 3 ) {
-    digitalWrite (13, LOW); // connect to relay(motor)
-    digitalWrite (7, LOW);
+    digitalWrite (A2, LOW); // connect to relay(motor)
+    digitalWrite (A3, LOW);
     lcd.setCursor(0, 1);
     lcd.print("Tank is Full");
   }
   else if (distance >= 9) {
-    digitalWrite (7, HIGH); // connect to relay(motor)
-    digitalWrite (13, HIGH);
+    digitalWrite (A2, HIGH); // connect to relay(motor)
+    digitalWrite (A3, HIGH);
     lcd.setCursor(0, 1);
     lcd.print("Motor Started");
   }
@@ -111,7 +115,7 @@ void updateRemoteChannel(long water_level, float temperature)
     debugPrint(">", false);
     debugPrint(cmd, true);
     wifi.print(cmd);
-
+    delay(1000);
     if ( wifi.find("OK") )
     {
       debugPrint( "RECEIVED: OK", true);
@@ -157,17 +161,18 @@ boolean connectWiFi()
   if (!wifi.find("OK"))
   {
     debugPrint("RECEIVED: Error", true);
+    network_cennected = false;
   }
   else
   {
-    debugPrint("returned value is untrackable", true);
-  }
-
-  cmd = "AT+CIPMUX=0";// Set Single connection
-  sendWifi( cmd );
-  if ( wifi.find( "Error") )
-  {
-    debugPrint( "RECEIVED: Error", true);
+    debugPrint("Wifi Connected", true);
+    network_cennected = true;
+    cmd = "AT+CIPMUX=1";// Set Single connection
+    sendWifi( cmd );
+    if ( wifi.find( "Error") )
+    {
+      debugPrint( "RECEIVED: Error in CIPMUX", true);
+    }
   }
 }
 
